@@ -1,0 +1,3063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelioNest — Your Home. Powered Forever.</title>
+  <meta name="description"
+    content="India's fastest-growing home solar brand. Save up to 90% on electricity bills with HelioNest solar solutions." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- AOS.js -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* ===== CSS RESET & BASE ===== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #111827;
+      background: #FFFFFF;
+      overflow-x: clip;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ===== UTILITY CLASSES ===== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    @media (min-width: 1024px) {
+      .section-padding {
+        padding: 110px 0;
+      }
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .grid {
+      display: grid;
+    }
+
+    /* ===== COLOR VARIABLES ===== */
+    :root {
+      --navy: #0A1628;
+      --amber: #F5A623;
+      --green: #22C55E;
+      --dark: #111827;
+      --muted: #6B7280;
+      --bg: #FDFDFC;
+      --card: #F5F4F0;
+      --dark-section: #050C1A;
+      --white-off: #FDFDFC;
+    }
+
+    /* ===== SCROLL PROGRESS BAR ===== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--amber);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.05s linear;
+    }
+
+    /* ===== KEYFRAMES ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) skewY(1deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) skewY(0deg);
+      }
+    }
+
+    @keyframes glowPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(245, 166, 35, 0.15), 0 0 60px rgba(245, 166, 35, 0.08);
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgba(245, 166, 35, 0.3), 0 0 100px rgba(245, 166, 35, 0.15);
+      }
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      20% {
+        transform: translateX(-8px);
+      }
+
+      40% {
+        transform: translateX(8px);
+      }
+
+      60% {
+        transform: translateX(-6px);
+      }
+
+      80% {
+        transform: translateX(6px);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        max-height: 0;
+      }
+
+      to {
+        opacity: 1;
+        max-height: 500px;
+      }
+    }
+
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ===== SECTION TRANSITION GRADIENTS ===== */
+    .section-transition-dark-to-light {
+      height: 60px;
+      background: linear-gradient(#050C1A, #FDFDFC);
+    }
+
+    .section-transition-light-to-dark {
+      height: 60px;
+      background: linear-gradient(#FDFDFC, #050C1A);
+    }
+
+    .section-transition-warm-to-dark {
+      height: 60px;
+      background: linear-gradient(#F5F4F0, #050C1A);
+    }
+
+    /* ===== EYEBROW LABEL SYSTEM ===== */
+    .section-eyebrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--amber);
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+
+    .section-eyebrow span {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: none;
+      padding: 12px 0;
+    }
+
+    .nav-hero-separator {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #1E3A5F, transparent);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .logo .logo-amber {
+      color: var(--amber);
+    }
+
+    .navbar.scrolled .logo {
+      color: var(--navy);
+    }
+
+    .logo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-links a:not(.nav-cta) {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      transition: color 0.2s ease;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--amber);
+      transition: transform 0.2s ease;
+      transform-origin: center;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after {
+      transform: translateX(-50%) scale(1);
+    }
+
+    .navbar.scrolled .nav-links a:not(.nav-cta) {
+      color: #374151;
+    }
+
+    .nav-links a:not(.nav-cta):hover {
+      color: var(--navy);
+    }
+
+    .navbar:not(.scrolled) .nav-links a:not(.nav-cta):hover {
+      color: #FFFFFF;
+    }
+
+    .nav-cta {
+      display: none;
+      background: var(--amber);
+      color: var(--navy);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-cta {
+        display: inline-block;
+      }
+    }
+
+    .nav-cta:hover {
+      background: #E8920D;
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1001;
+    }
+
+    @media (min-width: 1024px) {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #FFFFFF;
+      margin: 6px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled .hamburger span {
+      background: var(--navy);
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--navy);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu a {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .mobile-menu .nav-cta {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 16px;
+      padding: 14px 32px;
+      border-radius: 8px;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      font-size: 32px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 100vh;
+      background-image:
+        linear-gradient(180deg, rgba(13, 24, 41, 0.9) 0%, rgba(13, 24, 41, 0.7) 60%, rgba(13, 24, 41, 0.2) 100%),
+        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2500&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      padding: 140px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 1024px) {
+      .hero {
+        background-image:
+          linear-gradient(90deg, #0D1829 0%, rgba(13, 24, 41, 0.9) 45%, rgba(13, 24, 41, 0.15) 100%),
+          url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2500&q=80');
+      }
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 1023px) {
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 640px;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-content {
+        flex: 0 0 58%;
+        text-align: left;
+      }
+    }
+
+    .hero-headline {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+    }
+
+    @media (min-width: 640px) {
+      .hero-headline {
+        font-size: 56px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-headline {
+        font-size: 72px;
+      }
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: #94A3B8;
+      line-height: 1.75;
+      margin-bottom: 32px;
+      max-width: 480px;
+      opacity: 0;
+      animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-sub {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber);
+      color: var(--navy);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      min-height: 48px;
+      letter-spacing: 0.01em;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 8px 24px rgba(245, 166, 35, 0.25);
+      transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity: 0;
+      animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+    }
+
+    .hero-cta:hover {
+      background: #E8920D;
+      transform: translateY(-1px);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 12px 32px rgba(245, 166, 35, 0.35);
+    }
+
+    .hero-cta svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .hero-cta:hover svg {
+      transform: translateX(3px);
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      background: #FFFFFF;
+      padding: 8px 16px 8px 10px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      color: #374151;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+    }
+
+    .trust-badge .star {
+      color: var(--amber);
+    }
+
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeInRight 0.8s ease-out 0.5s forwards;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-visual {
+        flex: 0 0 40%;
+      }
+    }
+
+    .hero-visual img {
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      object-fit: cover;
+    }
+
+    /* ===== SEGMENT CARDS ===== */
+    .segment-section {
+      padding: 64px 0;
+      background: var(--white-off);
+    }
+
+    @media (min-width: 1024px) {
+      .segment-section {
+        padding: 96px 0;
+      }
+    }
+
+    .section-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    @media (min-width: 640px) {
+      .section-heading {
+        font-size: 44px;
+      }
+    }
+
+    .segment-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .segment-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .segment-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 16px;
+      padding: 0 0 32px 0;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .segment-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      border-color: var(--amber);
+    }
+
+    .segment-img {
+      width: 100%;
+      height: 220px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .segment-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .segment-card:hover .segment-img img {
+      transform: scale(1.05);
+    }
+
+    .segment-content {
+      padding: 0 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 639px) {
+      .segment-content {
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    .segment-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .segment-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .segment-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      background: transparent;
+      border: 1.5px solid var(--navy);
+      padding: 10px 20px;
+      border-radius: 8px;
+      min-height: 48px;
+      transition: all 0.18s ease;
+    }
+
+    .segment-link:hover {
+      background: var(--navy);
+      color: #FFFFFF;
+      gap: 8px;
+    }
+
+    /* ===== WHY TRUST HELIONEST ===== */
+    .trust-section {
+      padding: 96px 0;
+      background: #F5F4F0;
+    }
+
+    @media (min-width: 1024px) {
+      .trust-section {
+        padding: 96px 0;
+      }
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .trust-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .trust-card {
+      background: #FAFAF8;
+      border-radius: 20px;
+      padding: 36px 32px 28px;
+      border: none;
+      box-shadow: none;
+      transition: transform 0.25s ease;
+    }
+
+    @media (max-width: 639px) {
+      .trust-card {
+        text-align: center;
+      }
+    }
+
+    .trust-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .trust-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 639px) {
+      .trust-icon {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .trust-icon svg {
+      width: 28px;
+      height: 28px;
+      color: #FFFFFF;
+    }
+
+    .trust-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .trust-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ===== STATS SECTION ===== */
+    .stats-section {
+      padding: 70px 0 60px;
+      background: #F5F4F0;
+    }
+
+    @media (min-width: 1024px) {
+      .stats-section {
+        padding: 70px 0 60px;
+      }
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 480px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    @media (min-width: 640px) {
+      .stat-number {
+        font-size: 52px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .stat-number {
+        font-size: 64px;
+      }
+    }
+
+    .stat-prefix,
+    .stat-suffix {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+      vertical-align: 0.15em;
+    }
+
+    @media (min-width: 640px) {
+
+      .stat-prefix,
+      .stat-suffix {
+        font-size: 32px;
+        vertical-align: 0.1em;
+      }
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+
+
+    /* ===== SAVINGS CALCULATOR ===== */
+    .calc-section {
+      padding: 64px 0;
+      background: var(--white-off);
+    }
+
+    @media (min-width: 1024px) {
+      .calc-section {
+        padding: 96px 0;
+      }
+    }
+
+    .calc-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 20px;
+      padding: 40px 28px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    @media (min-width: 640px) {
+      .calc-card {
+        padding: 48px 40px;
+      }
+    }
+
+    .calc-card h2 {
+      font-size: 26px;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 640px) {
+      .calc-card h2 {
+        font-size: 30px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 18px;
+      background: #F5F4F0;
+      border: 1.5px solid transparent;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      background: #FFFFFF;
+      border-color: var(--amber);
+    }
+
+    .form-input.error {
+      border-color: #EF4444;
+      animation: shake 0.4s ease;
+    }
+
+    .error-text {
+      font-size: 13px;
+      color: #EF4444;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .error-text.show {
+      display: block;
+    }
+
+    .pill-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .pill-group {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .pill-btn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #F5F4F0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .pill-btn:hover {
+      background: #E8E7E3;
+    }
+
+    .pill-btn.active {
+      background: #0A1628;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .calc-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--amber);
+      color: var(--navy);
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      min-height: 48px;
+      letter-spacing: 0.01em;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 8px 24px rgba(245, 166, 35, 0.25);
+      transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+      margin-top: 8px;
+    }
+
+    .calc-submit:hover {
+      background: #E8920D;
+      transform: translateY(-1px);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 12px 32px rgba(245, 166, 35, 0.35);
+    }
+
+    .calc-result {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.4s ease;
+      margin-top: 0;
+    }
+
+    .calc-result.show {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 28px;
+    }
+
+    .calc-result-inner {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 28px;
+      border: 1px solid #E5E7EB;
+    }
+
+    .calc-result-soon {
+      display: none;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .calc-result-soon.show {
+      display: block;
+    }
+
+    .calc-result-soon svg {
+      width: 48px;
+      height: 48px;
+      color: var(--amber);
+      margin-bottom: 12px;
+    }
+
+    .result-amount {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .result-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .result-detail {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #E5E7EB;
+      font-size: 14px;
+    }
+
+    .result-detail:last-child {
+      border-bottom: none;
+    }
+
+    .result-detail span:first-child {
+      color: var(--muted);
+    }
+
+    .result-detail span:last-child {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .result-cta {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--navy);
+      color: #FFFFFF;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .result-cta:hover {
+      background: #152238;
+    }
+
+    /* ===== 4-STEP PROCESS ===== */
+    .process-section {
+      padding: 64px 0;
+      background: var(--white-off);
+    }
+
+    @media (min-width: 1024px) {
+      .process-section {
+        padding: 96px 0;
+      }
+    }
+
+    .process-steps {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      border-left: 2px dashed #E5E7EB;
+    }
+
+    @media (min-width: 640px) {
+      .process-steps::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .process-step {
+        gap: 40px;
+      }
+    }
+
+    .process-step:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 640px) {
+      .process-step:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .process-step-content {
+      flex: 1;
+      padding-left: 56px;
+    }
+
+    @media (min-width: 640px) {
+      .process-step:nth-child(odd) .process-step-content {
+        padding-left: 0;
+        padding-right: 56px;
+        text-align: right;
+      }
+
+      .process-step:nth-child(even) .process-step-content {
+        padding-left: 56px;
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 639px) {
+      .process-step-content {
+        padding-left: 56px;
+      }
+    }
+
+    .process-step-visual {
+      display: none;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .process-step-visual {
+        display: flex;
+      }
+    }
+
+    .step-number {
+      position: absolute;
+      left: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 640px) {
+      .step-number {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .step-watermark {
+      font-family: 'Syne', sans-serif;
+      font-size: 80px;
+      font-weight: 800;
+      color: rgba(245, 166, 35, 0.06);
+      line-height: 1;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+    }
+
+    .process-step-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .process-step-content p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .process-step-visual img {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    /* ===== APP MONITORING SECTION ===== */
+
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-section {
+      padding: 100px 0 80px;
+      background: var(--white-off);
+    }
+
+    @media (min-width: 1024px) {
+      .testimonials-section {
+        padding: 100px 0 80px;
+      }
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .testimonials-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 640px) {
+      .testimonials-header h2 {
+        font-size: 44px;
+      }
+    }
+
+    .google-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--card);
+      padding: 12px 24px;
+      border-radius: 12px;
+    }
+
+    .rating-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .rating-info {
+      text-align: left;
+    }
+
+    .rating-stars {
+      color: var(--amber);
+      font-size: 16px;
+    }
+
+    .rating-text {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .testimonials-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 8px 4px 24px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .testimonials-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .testimonials-scroll {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        scroll-snap-type: none;
+      }
+    }
+
+    .testimonial-card {
+      min-width: 85vw;
+      scroll-snap-align: start;
+      background: #FFFFFF;
+      border: none;
+      border-radius: 16px;
+      padding: 40px;
+      position: relative;
+      box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+      overflow: visible;
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -16px;
+      left: 24px;
+      font-size: 180px;
+      color: #F5A623;
+      opacity: 0.07;
+      font-family: Georgia, serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    @media (min-width: 640px) {
+      .testimonial-card {
+        min-width: 60vw;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .testimonial-card {
+        min-width: auto;
+      }
+    }
+
+    .quote-mark {
+      font-size: 48px;
+      line-height: 1;
+      color: var(--amber);
+      font-family: Georgia, serif;
+      margin-bottom: 8px;
+      display: none;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--dark);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      background: var(--amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .author-info {
+      text-align: left;
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .author-city {
+      font-size: 14px;
+      color: #9CA3AF;
+    }
+
+    /* ===== FAQ ACCORDION ===== */
+    .faq-section {
+      padding: 96px 0;
+      background: #F5F4F0;
+    }
+
+    @media (min-width: 1024px) {
+      .faq-section {
+        padding: 96px 0;
+      }
+    }
+
+    .faq-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-container h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 640px) {
+      .faq-container h2 {
+        font-size: 44px;
+      }
+    }
+
+    .faq-item {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #F3F4F6;
+      border-radius: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.2s ease;
+    }
+
+    .faq-question:hover {
+      color: var(--amber);
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-icon::before {
+      width: 14px;
+      height: 2px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-icon::after {
+      width: 2px;
+      height: 14px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-item.active .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.35s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .faq-answer p {
+      padding: 0 0 24px;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ===== LEAD CAPTURE FORM ===== */
+    .lead-section {
+      padding: 96px 0;
+      background: linear-gradient(160deg, #0D1829 0%, #080F1E 60%, #050C1A 100%);
+    }
+
+    @media (min-width: 1024px) {
+      .lead-section {
+        padding: 96px 0;
+      }
+    }
+
+    .lead-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .lead-inner h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    @media (min-width: 640px) {
+      .lead-inner h2 {
+        font-size: 44px;
+      }
+    }
+
+    .lead-inner>p {
+      font-size: 17px;
+      color: #94A3B8;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .lead-form {
+      text-align: left;
+    }
+
+    .lead-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .lead-form .form-label {
+      color: #CBD5E1;
+    }
+
+    .lead-form .form-input {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+    }
+
+    .lead-form .form-input::placeholder {
+      color: #6B7280;
+    }
+
+    .lead-form .form-input:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--amber);
+    }
+
+    .lead-form .form-input.error {
+      border-color: #EF4444;
+    }
+
+    .lead-form .pill-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #CBD5E1;
+    }
+
+    .lead-form .pill-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .lead-form .pill-btn.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--navy);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--amber);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .checkbox-group label {
+      font-size: 13px;
+      color: #94A3B8;
+      line-height: 1.5;
+    }
+
+    .checkbox-group a {
+      color: var(--amber);
+      text-decoration: underline;
+    }
+
+    .lead-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--amber);
+      color: var(--navy);
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 8px 24px rgba(245, 166, 35, 0.25);
+      transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .lead-submit:hover {
+      background: #E8920D;
+      transform: translateY(-1px);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 12px 32px rgba(245, 166, 35, 0.35);
+    }
+
+    .lead-success {
+      display: none;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 14px;
+      padding: 32px;
+      text-align: center;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    .lead-success.show {
+      display: block;
+    }
+
+    .lead-success svg {
+      width: 48px;
+      height: 48px;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .lead-success h3 {
+      font-size: 20px;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .lead-success p {
+      font-size: 14px;
+      color: #94A3B8;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #060F1E;
+      padding: 60px 0 0;
+      color: #94A3B8;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 640px) {
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand .logo {
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6B7280;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 4px;
+    }
+
+    .footer-col ul li a {
+      font-size: 14px;
+      color: #9CA3AF;
+      line-height: 2;
+      transition: color 0.15s ease;
+    }
+
+    .footer-col ul li a:hover {
+      color: #FFFFFF;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-row a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .social-row a:hover {
+      background: var(--amber);
+    }
+
+    .social-row a:hover svg {
+      color: var(--navy);
+    }
+
+    .social-row svg {
+      width: 18px;
+      height: 18px;
+      color: #94A3B8;
+      transition: color 0.2s ease;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-bottom p {
+      font-size: 13px;
+      color: #6B7280;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 13px;
+      color: #9CA3AF;
+      transition: color 0.15s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #FFFFFF;
+    }
+
+    /* ===== MOBILE STICKY BOTTOM FORM ===== */
+    .mobile-sticky-form {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 998;
+      background: #FFFFFF;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+      padding: 24px 20px;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .mobile-sticky-form.show {
+      transform: translateY(0);
+    }
+
+    @media (min-width: 1024px) {
+      .mobile-sticky-form {
+        display: none;
+      }
+    }
+
+    .mobile-sticky-form .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--muted);
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-sticky-form h3 {
+      font-size: 16px;
+      color: var(--navy);
+      margin-bottom: 12px;
+      padding-right: 32px;
+    }
+
+    .mobile-sticky-form .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-sticky-form .form-input {
+      flex: 1;
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    .mobile-sticky-form .submit-btn {
+      padding: 12px 20px;
+      background: var(--amber);
+      color: var(--navy);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ===== RESPONSIVE UTILITIES ===== */
+    @media (max-width: 639px) {
+      .hide-mobile {
+        display: none !important;
+      }
+    }
+
+    @media (min-width: 640px) {
+      .show-mobile {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== SCROLL PROGRESS BAR ===== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="7" fill="#F5A623" />
+          <path
+            d="M14 2V6M14 22V26M2 14H6M22 14H26M5.64 5.64L8.46 8.46M19.54 19.54L22.36 22.36M5.64 22.36L8.46 19.54M19.54 8.46L22.36 5.64"
+            stroke="#F5A623" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <span>Helio</span><span class="logo-amber">Nest</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#solutions">Solutions</a>
+        <a href="#cities">Cities</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#blog">Blog</a>
+        <a href="#lead-form" class="nav-cta">Get Free Quote</a>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
+      <a href="#solutions" class="mobile-link">Solutions</a>
+      <a href="#cities" class="mobile-link">Cities</a>
+      <a href="#calculator" class="mobile-link">Calculator</a>
+      <a href="#blog" class="mobile-link">Blog</a>
+      <a href="#lead-form" class="nav-cta mobile-link">Get Free Quote</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-headline" style="text-shadow: 0 4px 20px rgba(0,0,0,0.4);">The Sun Rises. Your Bills Don't Have
+          To.</h1>
+        <p class="hero-sub" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #E2E8F0;">With HelioNest, save up to
+          90% on electricity bills — backed by India's only Solar Savings Guarantee.</p>
+        <a href="#lead-form" class="hero-cta">
+          Get Free Consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <div class="trust-badge"
+          style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); color: #FFF; border: 1px solid rgba(255,255,255,0.2);">
+          <span class="star">&#9733;</span>
+          <span><strong style="color:#F5A623;">4.9</strong> on Google &middot; 8,000+ homes powered</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEGMENT CARDS ===== -->
+  <section class="segment-section" id="solutions">
+    <div class="container">
+      <div class="section-eyebrow" data-aos="fade-up"><span>Solutions</span></div>
+      <h2 class="section-heading" data-aos="fade-up">Get Solar For</h2>
+      <div class="segment-grid">
+        <!-- Homes -->
+        <div class="segment-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="segment-img">
+            <img src="./segment_homes.png" alt="Home Solar Panels" />
+          </div>
+          <div class="segment-content">
+            <h3>Homes</h3>
+            <p>Cut your monthly bill by 90%. Starting ₹0 down.</p>
+            <a href="#" class="segment-link">Learn More <span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Housing Societies -->
+        <div class="segment-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="segment-img">
+            <img src="./segment_society.png" alt="Housing Society Solar" />
+          </div>
+          <div class="segment-content">
+            <h3>Housing Societies</h3>
+            <p>Slash common area costs. Add long-term property value.</p>
+            <a href="#" class="segment-link">Learn More <span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Commercial -->
+        <div class="segment-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="segment-img">
+            <img src="./segment_commercial.png" alt="Commercial Solar Installation" />
+          </div>
+          <div class="segment-content">
+            <h3>Commercial</h3>
+            <p>Power your business green. Claim full tax benefits.</p>
+            <a href="#" class="segment-link">Learn More <span>&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY TRUST HELIONEST ===== -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="section-eyebrow" data-aos="fade-up"><span>Why HelioNest</span></div>
+      <h2 class="section-heading" data-aos="fade-up">Why Trust HelioNest</h2>
+      <div class="trust-grid">
+        <!-- Pillar 1 -->
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+          <h3>NestGuard&trade; Savings Promise</h3>
+          <p>Money-back guarantee if you don't save ₹8/unit. We put our money where our mouth is.</p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3>Zero Middlemen</h3>
+          <p>We design, install, and maintain. Every step, us. No outsourcing, no excuses.</p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 15a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v4H3z" />
+              <path d="M16 11V7a4 4 0 0 0-4-4 4 4 0 0 0-4 4v4" />
+            </svg>
+          </div>
+          <h3>StormShield Mount&trade;</h3>
+          <p>Tested for 180 kmph winds. IIT-certified structure built for Indian weather.</p>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ===== STATS COUNTER SECTION ===== -->
+  <section class="stats-section" id="cities">
+    <div class="container">
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-item">
+          <div class="stat-number" data-target="18000" data-suffix="+">0</div>
+          <div class="stat-label">Homes Powered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="85" data-suffix=" MW+">0</div>
+          <div class="stat-label">Solar Installed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="42" data-prefix="&#8377;" data-suffix=" Cr+">0</div>
+          <div class="stat-label">Subsidies Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="22" data-suffix=" States">0</div>
+          <div class="stat-label">Pan-India Presence</div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ===== SAVINGS CALCULATOR ===== -->
+  <section class="calc-section" id="calculator">
+    <div class="container">
+      <div class="calc-card" data-aos="fade-up">
+        <h2>Calculate Your Solar Savings</h2>
+
+        <div class="form-group">
+          <label class="form-label">Enter your PIN Code</label>
+          <input type="text" class="form-input" id="calcPincode" placeholder="e.g. 560001" maxlength="6"
+            inputmode="numeric" />
+          <p class="error-text" id="pincodeError">Enter a valid 6-digit pincode</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Monthly Electricity Bill</label>
+          <div class="pill-group" id="billPills">
+            <button type="button" class="pill-btn" data-value="1000">&#8377;500 – 1,500</button>
+            <button type="button" class="pill-btn" data-value="2250">&#8377;1,500 – 3,000</button>
+            <button type="button" class="pill-btn" data-value="4500">&#8377;3,000 – 6,000</button>
+            <button type="button" class="pill-btn" data-value="8000">&#8377;6,000+</button>
+          </div>
+        </div>
+
+        <button type="button" class="calc-submit" id="calcSubmit">Calculate Savings</button>
+
+        <div class="calc-result" id="calcResult">
+          <div class="calc-result-inner">
+            <div class="result-amount" id="resultAmount">&#8377;0</div>
+            <div class="result-label">Estimated annual savings</div>
+            <div class="result-detail">
+              <span>Payback period</span>
+              <span>3 – 4 years</span>
+            </div>
+            <div class="result-detail">
+              <span>System size (estimated)</span>
+              <span id="resultSize">3 – 5 kW</span>
+            </div>
+            <div class="result-detail">
+              <span>Lifetime savings (25 yrs)</span>
+              <span id="resultLifetime">&#8377;0</span>
+            </div>
+            <a href="#lead-form" class="result-cta">Book Free Visit</a>
+          </div>
+        </div>
+
+        <div class="calc-result-soon" id="calcResultSoon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <h3 style="font-family:'Syne',sans-serif;font-size:18px;color:var(--navy);margin-bottom:8px;">We haven't
+            reached your area yet</h3>
+          <p style="font-size:14px;color:var(--muted);">But we're coming soon! Leave your details and we'll notify you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4-STEP PROCESS ===== -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-eyebrow" data-aos="fade-up"><span>Process</span></div>
+      <h2 class="section-heading" data-aos="fade-up" style="margin-bottom:56px;">How It Works</h2>
+      <div class="process-steps">
+        <!-- Step 1 -->
+        <div class="process-step" data-aos="fade-right" data-aos-delay="0">
+          <div class="step-number">1</div>
+          <div class="process-step-content">
+            <h3>Free Rooftop Survey</h3>
+            <p>Our expert visits and maps your roof for maximum solar output. We assess shading, structure, and
+              electrical compatibility — all at no cost.</p>
+          </div>
+          <div class="process-step-visual">
+            <img src="https://placehold.co/280x200/F9FAFB/0A1628?text=Survey+Icon&font=inter" alt="Rooftop Survey"
+              loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step" data-aos="fade-left" data-aos-delay="150">
+          <div class="step-number">2</div>
+          <div class="process-step-content">
+            <h3>Custom 3D Solar Design</h3>
+            <p>See exactly how your system will look before installation. Our AI-powered design tool creates a
+              photorealistic preview of your rooftop solar setup.</p>
+          </div>
+          <div class="process-step-visual">
+            <img src="https://placehold.co/280x200/F9FAFB/0A1628?text=3D+Design&font=inter" alt="3D Design"
+              loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+          <div class="step-number">3</div>
+          <div class="process-step-content">
+            <h3>Installation + Subsidy Filing</h3>
+            <p>Done in 1 day. We handle all the paperwork — from government subsidy applications to net metering
+              approvals. You just sit back.</p>
+          </div>
+          <div class="process-step-visual">
+            <img src="https://placehold.co/280x200/F9FAFB/0A1628?text=Installation&font=inter" alt="Installation"
+              loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step" data-aos="fade-left" data-aos-delay="450">
+          <div class="step-number">4</div>
+          <div class="process-step-content">
+            <h3>Solar On. You Save.</h3>
+            <p>Savings from Day 1. We maintain it for life with our proactive monitoring and annual maintenance visits.
+              Zero worries.</p>
+          </div>
+          <div class="process-step-visual">
+            <img src="https://placehold.co/280x200/F9FAFB/0A1628?text=Savings&font=inter" alt="Savings"
+              loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APP MONITORING SECTION ===== -->
+
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="testimonials-header" data-aos="fade-up">
+        <h2>90% of our customers recommend us</h2>
+        <div class="google-rating">
+          <span class="rating-number">4.9</span>
+          <div class="rating-info">
+            <div class="rating-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <div class="rating-text">Rated on Google with 8,000+ ratings</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials-scroll" id="testimonialsScroll">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="testimonial-text">Bills dropped from ₹6,500 to under ₹200. The installation team was clean and fast.
+            Highly recommend HelioNest to every homeowner.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RM</div>
+            <div class="author-info">
+              <div class="author-name">Rajan Mehta</div>
+              <div class="author-city">Pune</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="testimonial-text">HelioNest handled the subsidy process entirely. We didn't lift a finger. The app
+            is fantastic — I check my savings every morning!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">PV</div>
+            <div class="author-info">
+              <div class="author-name">Priya Venkataraman</div>
+              <div class="author-city">Chennai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="testimonial-text">Generating 28 units daily. Already recovered 60% of the cost in Year 1. The
+            NestGuard guarantee gave me the confidence to go solar.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AB</div>
+            <div class="author-info">
+              <div class="author-name">Arjun Bose</div>
+              <div class="author-city">Kolkata</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ACCORDION ===== -->
+  <section class="faq-section" id="blog">
+    <div class="container faq-container">
+      <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
+        <button class="faq-question">
+          How much can I actually save with HelioNest?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Most HelioNest customers save between 70-90% on their electricity bills. For a home with a monthly bill of
+            ₹3,000, that translates to savings of ₹2,500+ per month or over ₹30,000 annually. With our NestGuard™
+            guarantee, we promise minimum savings of ₹8 per unit — or your money back.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+        <button class="faq-question">
+          What is the GreenZero&trade; savings guarantee?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>GreenZero™ is India's only guaranteed solar savings plan. If your system doesn't generate the promised
+            savings of ₹8/unit, we refund the difference. It includes proactive quarterly maintenance, zero repair costs
+            for 5 years, and real-time app tracking to compare promised vs actual savings.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+        <button class="faq-question">
+          How long does installation take?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Most residential installations are completed in a single day. Here's the timeline: Free survey (Day 1-2),
+            Custom design approval (Day 3-5), Installation (Day 6 — single day), Government inspection & commissioning
+            (Day 7-15). You'll start saving from Day 1 of going live.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+        <button class="faq-question">
+          Does solar work during monsoon and cloudy weather?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! Solar panels generate electricity from diffused sunlight, not just direct sun. On cloudy days, output
+            drops to 25-40% of peak — but your annual savings remain strong because India receives abundant sunshine
+            year-round. We factor in local weather data when designing your system.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+        <button class="faq-question">
+          What subsidies am I eligible for?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Under the MNRE scheme, homeowners can get up to 40% subsidy on systems up to 3kW, and 20% for 3-10kW
+            systems. Many states offer additional subsidies. HelioNest handles all subsidy paperwork end-to-end — we've
+            helped customers claim over ₹42 Crore in subsidies so far.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEAD CAPTURE FORM ===== -->
+  <section class="lead-section" id="lead-form">
+    <div class="container">
+      <div class="lead-inner" data-aos="fade-up">
+        <h2>Talk to a Solar Expert</h2>
+        <p>Get genuine advice. No pushy sales.</p>
+
+        <form class="lead-form" id="leadForm" novalidate>
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" id="leadName" placeholder="Your full name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">WhatsApp Number</label>
+            <input type="tel" class="form-input" id="leadPhone" placeholder="10-digit mobile number" maxlength="10"
+              inputmode="numeric" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">PIN Code</label>
+            <input type="text" class="form-input" id="leadPin" placeholder="6-digit PIN code" maxlength="6"
+              inputmode="numeric" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Monthly Bill</label>
+            <div class="pill-group" id="leadBillPills">
+              <button type="button" class="pill-btn" data-value="1000">&#8377;500 – 1,500</button>
+              <button type="button" class="pill-btn" data-value="2250">&#8377;1,500 – 3,000</button>
+              <button type="button" class="pill-btn" data-value="4500">&#8377;3,000 – 6,000</button>
+              <button type="button" class="pill-btn" data-value="8000">&#8377;6,000+</button>
+            </div>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="leadTerms" />
+            <label for="leadTerms">I agree to the <a href="#">Terms of Service</a> and consent to being contacted via
+              WhatsApp/SMS.</label>
+          </div>
+
+          <button type="submit" class="lead-submit">Get Free Quote</button>
+        </form>
+
+        <div class="lead-success" id="leadSuccess">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+          <h3>Details Submitted!</h3>
+          <p>Our team will call you within 2 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="14" cy="14" r="7" fill="#F5A623" />
+              <path
+                d="M14 2V6M14 22V26M2 14H6M22 14H26M5.64 5.64L8.46 8.46M19.54 19.54L22.36 22.36M5.64 22.36L8.46 19.54M19.54 8.46L22.36 5.64"
+                stroke="#F5A623" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span>Helio</span><span class="logo-amber">Nest</span>
+          </a>
+          <p>Your Home. Powered Forever. India's fastest-growing home solar brand.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.46z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Offerings</h4>
+          <ul>
+            <li><a href="#">Home Solar</a></li>
+            <li><a href="#">Society Solar</a></li>
+            <li><a href="#">Commercial Solar</a></li>
+            <li><a href="#">GreenZero&trade; Plan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#">Rooftop Solar</a></li>
+            <li><a href="#">Solar Calculator</a></li>
+            <li><a href="#">Subsidy Guide</a></li>
+            <li><a href="#">EMI Options</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><a href="tel:18001234567">1800-123-4567</a></li>
+            <li><a href="mailto:hello@helionest.in">hello@helionest.in</a></li>
+            <li><a href="#">Bangalore, India</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 HelioNest. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MOBILE STICKY BOTTOM FORM ===== -->
+  <div class="mobile-sticky-form" id="mobileStickyForm">
+    <button class="close-btn" id="closeStickyForm" aria-label="Close">&times;</button>
+    <h3>Switch to Solar at &#8377;0 down</h3>
+    <div class="form-row">
+      <input type="text" class="form-input" placeholder="Name" id="stickyName" />
+      <input type="tel" class="form-input" placeholder="WhatsApp" id="stickyPhone" maxlength="10" inputmode="numeric" />
+      <input type="text" class="form-input" placeholder="PIN" id="stickyPin" maxlength="6" inputmode="numeric"
+        style="max-width:70px;" />
+      <button type="button" class="submit-btn" id="stickySubmit">Get Quote</button>
+    </div>
+  </div>
+
+  <!-- ===== AOS.JS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // ===== INITIALIZE AOS =====
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({
+        duration: 700,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: window.innerWidth < 768 ? 10 : 60,
+        disable: false
+      });
+    });
+
+    // ===== SCROLL PROGRESS BAR =====
+    const scrollProgress = document.getElementById('scrollProgress');
+
+    // ===== NAVBAR SCROLL EFFECT =====
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', function () {
+      const currentScroll = window.pageYOffset;
+
+      // Update Scroll Progress
+      if (scrollProgress) {
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (currentScroll / docHeight) * 100;
+        scrollProgress.style.width = scrollPercent + '%';
+      }
+
+      if (currentScroll > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ===== MOBILE MENU =====
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    hamburgerBtn.addEventListener('click', function () {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    mobileMenuClose.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ===== STATS COUNTER =====
+    const statsGrid = document.getElementById('statsGrid');
+    let statsAnimated = false;
+
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function animateCounter(el, target, duration, prefix, suffix) {
+      const startTime = performance.now();
+      prefix = prefix || '';
+      suffix = suffix || '';
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeOutCubic(progress);
+        const current = Math.floor(eased * target);
+
+        const prefixHtml = prefix ? `<span class="stat-prefix">${prefix}</span>` : '';
+        const suffixHtml = suffix ? `<span class="stat-suffix">${suffix}</span>` : '';
+
+        el.innerHTML = prefixHtml + current.toLocaleString('en-IN') + suffixHtml;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.innerHTML = prefixHtml + target.toLocaleString('en-IN') + suffixHtml;
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    const statsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !statsAnimated) {
+          statsAnimated = true;
+          const statNumbers = document.querySelectorAll('.stat-number');
+          statNumbers.forEach(function (el, index) {
+            const target = parseInt(el.dataset.target);
+            const prefix = el.dataset.prefix || '';
+            const suffix = el.dataset.suffix || '';
+            setTimeout(function () {
+              animateCounter(el, target, 2000, prefix, suffix);
+            }, index * 150);
+          });
+
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    statsObserver.observe(statsGrid);
+
+    // ===== SAVINGS CALCULATOR =====
+    const calcPincode = document.getElementById('calcPincode');
+    const pincodeError = document.getElementById('pincodeError');
+    const billPills = document.querySelectorAll('#billPills .pill-btn');
+    const calcSubmit = document.getElementById('calcSubmit');
+    const calcResult = document.getElementById('calcResult');
+    const calcResultSoon = document.getElementById('calcResultSoon');
+    const resultAmount = document.getElementById('resultAmount');
+    const resultSize = document.getElementById('resultSize');
+    const resultLifetime = document.getElementById('resultLifetime');
+
+    let selectedBillValue = null;
+
+    calcPincode.addEventListener('blur', function () {
+      const val = calcPincode.value.trim();
+      if (val.length !== 6 || !/^\d{6}$/.test(val)) {
+        calcPincode.classList.add('error');
+        pincodeError.classList.add('show');
+      } else {
+        calcPincode.classList.remove('error');
+        pincodeError.classList.remove('show');
+      }
+    });
+
+    calcPincode.addEventListener('input', function () {
+      calcPincode.value = calcPincode.value.replace(/\D/g, '');
+      if (calcPincode.classList.contains('error')) {
+        calcPincode.classList.remove('error');
+        pincodeError.classList.remove('show');
+      }
+    });
+
+    billPills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        billPills.forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        selectedBillValue = parseInt(pill.dataset.value);
+      });
+    });
+
+    calcSubmit.addEventListener('click', function () {
+      const pinVal = calcPincode.value.trim();
+      const isValidPin = /^\d{6}$/.test(pinVal);
+
+      if (!isValidPin) {
+        calcPincode.classList.add('error');
+        pincodeError.classList.add('show');
+        calcResult.classList.remove('show');
+        calcResultSoon.classList.remove('show');
+        return;
+      }
+
+      if (!selectedBillValue) {
+        // Highlight pills to show selection needed
+        document.getElementById('billPills').style.animation = 'shake 0.4s ease';
+        setTimeout(function () {
+          document.getElementById('billPills').style.animation = '';
+        }, 400);
+        return;
+      }
+
+      // Check pincode range (110000 - 799999 for India)
+      const pinNum = parseInt(pinVal.substring(0, 3));
+      if (pinNum < 110 || pinNum > 799) {
+        calcResult.classList.remove('show');
+        calcResultSoon.classList.add('show');
+        return;
+      }
+
+      calcResultSoon.classList.remove('show');
+
+      // Calculate: bill × 0.85 × 12
+      const annualSavings = Math.round(selectedBillValue * 0.85 * 12);
+      const lifetimeSavings = annualSavings * 25;
+
+      // Determine system size
+      let systemSize = '2 – 3 kW';
+      if (selectedBillValue >= 2250) systemSize = '3 – 5 kW';
+      if (selectedBillValue >= 4500) systemSize = '5 – 8 kW';
+      if (selectedBillValue >= 8000) systemSize = '8 – 12 kW';
+
+      resultAmount.textContent = '\u20B9' + annualSavings.toLocaleString('en-IN');
+      resultSize.textContent = systemSize;
+      resultLifetime.textContent = '\u20B9' + lifetimeSavings.toLocaleString('en-IN');
+
+      calcResult.classList.add('show');
+    });
+
+    // ===== LEAD FORM =====
+    const leadForm = document.getElementById('leadForm');
+    const leadBillPills = document.querySelectorAll('#leadBillPills .pill-btn');
+    const leadSuccess = document.getElementById('leadSuccess');
+    let leadSelectedBill = null;
+
+    leadBillPills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        leadBillPills.forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        leadSelectedBill = parseInt(pill.dataset.value);
+      });
+    });
+
+    // Restrict numeric inputs
+    ['leadPhone', 'leadPin'].forEach(function (id) {
+      document.getElementById(id).addEventListener('input', function (e) {
+        e.target.value = e.target.value.replace(/\D/g, '');
+      });
+    });
+
+    leadForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      let isValid = true;
+
+      const name = document.getElementById('leadName');
+      const phone = document.getElementById('leadPhone');
+      const pin = document.getElementById('leadPin');
+      const terms = document.getElementById('leadTerms');
+
+      [name, phone, pin].forEach(function (field) {
+        field.classList.remove('error');
+      });
+
+      if (!name.value.trim() || name.value.trim().length < 2) {
+        name.classList.add('error');
+        isValid = false;
+      }
+
+      if (!phone.value.trim() || phone.value.trim().length !== 10) {
+        phone.classList.add('error');
+        isValid = false;
+      }
+
+      if (!pin.value.trim() || pin.value.trim().length !== 6) {
+        pin.classList.add('error');
+        isValid = false;
+      }
+
+      if (!terms.checked) {
+        isValid = false;
+        terms.parentElement.style.animation = 'shake 0.4s ease';
+        setTimeout(function () {
+          terms.parentElement.style.animation = '';
+        }, 400);
+      }
+
+      if (isValid) {
+        leadForm.style.display = 'none';
+        leadSuccess.classList.add('show');
+      }
+    });
+
+    // ===== FAQ ACCORDION =====
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function (item) {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', function () {
+        const isActive = item.classList.contains('active');
+
+        // Close all
+        faqItems.forEach(function (faq) {
+          faq.classList.remove('active');
+        });
+
+        // Open clicked if it was closed
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // ===== TESTIMONIAL AUTO-SCROLL =====
+    const testimonialsScroll = document.getElementById('testimonialsScroll');
+    let testimonialIndex = 0;
+
+    function autoScrollTestimonials() {
+      const cards = testimonialsScroll.querySelectorAll('.testimonial-card');
+      if (cards.length === 0) return;
+
+      testimonialIndex = (testimonialIndex + 1) % cards.length;
+      const cardWidth = cards[0].offsetWidth + 20; // including gap
+
+      testimonialsScroll.scrollTo({
+        left: testimonialIndex * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+
+    setInterval(autoScrollTestimonials, 4000);
+
+    // ===== MOBILE STICKY FORM =====
+    const mobileStickyForm = document.getElementById('mobileStickyForm');
+    const closeStickyForm = document.getElementById('closeStickyForm');
+    const stickySubmit = document.getElementById('stickySubmit');
+    let stickyShown = false;
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 300 && !stickyShown && !sessionStorage.getItem('stickyClosed')) {
+        stickyShown = true;
+        mobileStickyForm.classList.add('show');
+      }
+    }, { passive: true });
+
+    closeStickyForm.addEventListener('click', function () {
+      mobileStickyForm.classList.remove('show');
+      sessionStorage.setItem('stickyClosed', 'true');
+    });
+
+    stickySubmit.addEventListener('click', function () {
+      const sName = document.getElementById('stickyName').value.trim();
+      const sPhone = document.getElementById('stickyPhone').value.trim();
+      const sPin = document.getElementById('stickyPin').value.trim();
+
+      if (sName && sPhone.length === 10 && sPin.length === 6) {
+        mobileStickyForm.innerHTML = '<div style="padding:16px;text-align:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 8px;display:block;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p style="font-size:14px;color:var(--navy);font-weight:600;">Submitted! We\'ll call you within 2 hours.</p></div>';
+        setTimeout(function () {
+          mobileStickyForm.classList.remove('show');
+        }, 3000);
+      } else {
+        mobileStickyForm.querySelectorAll('.form-input').forEach(function (input) {
+          if (!input.value.trim()) {
+            input.style.borderColor = '#EF4444';
+            setTimeout(function () { input.style.borderColor = ''; }, 2000);
+          }
+        });
+      }
+    });
+
+    ['stickyPhone', 'stickyPin'].forEach(function (id) {
+      document.getElementById(id).addEventListener('input', function (e) {
+        e.target.value = e.target.value.replace(/\D/g, '');
+      });
+    });
+
+    // ===== FOOTER CTA STRIP =====
+    // Adding a subtle footer CTA strip above the footer
+    const footerCTA = document.createElement('div');
+    footerCTA.style.cssText = 'background:#0A1628;border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;text-align:center;';
+    footerCTA.innerHTML = '<div class="container" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;"><p style="color:#CBD5E1;font-size:15px;margin:0;">Switch to Solar at <strong style="color:#F5A623;">&#8377;0 Investment</strong> — Govt. subsidy covers your down payment.</p><a href="#lead-form" style="background:#F5A623;color:#0A1628;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap;">Start Today &rarr;</a></div>';
+
+    const footerEl = document.querySelector('.footer');
+    footerEl.parentNode.insertBefore(footerCTA, footerEl);
+  </script>
+</body>
+
+</html>
