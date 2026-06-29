@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HelioNest — Your Home. Powered Forever.</title>
+  <title>Kotieswara Associates — Your Home. Powered Forever.</title>
   <meta name="description"
-    content="India's fastest-growing home solar brand. Save up to 90% on electricity bills with HelioNest solar solutions." />
+    content="India's fastest-growing home solar brand. Save up to 90% on electricity bills with Kotieswara Associates solar solutions." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,14 +126,15 @@
     /* ===== COLOR VARIABLES ===== */
     :root {
       --navy: #0A1628;
-      --amber: #F5A623;
+      --accent: #1D4ED8;
       --green: #22C55E;
-      --dark: #111827;
-      --muted: #6B7280;
-      --bg: #FDFDFC;
-      --card: #F5F4F0;
-      --dark-section: #050C1A;
-      --white-off: #FDFDFC;
+      --dark: #0A1628;
+      --muted: #64748B;
+      --bg: #FFFFFF;
+      --card: #FFFFFF;
+      --card-border: #DBEAFE;
+      --dark-section: #0A1628;
+      --white-off: #F0F4F8;
     }
 
     /* ===== SCROLL PROGRESS BAR ===== */
@@ -142,7 +143,7 @@
       top: 0;
       left: 0;
       height: 3px;
-      background: var(--amber);
+      background: var(--accent);
       z-index: 9999;
       width: 0%;
       transition: width 0.05s linear;
@@ -268,7 +269,7 @@
 
     .section-transition-warm-to-dark {
       height: 60px;
-      background: linear-gradient(#F5F4F0, #050C1A);
+      background: linear-gradient(#F0F4F8, #050C1A);
     }
 
     /* ===== EYEBROW LABEL SYSTEM ===== */
@@ -284,7 +285,7 @@
       display: block;
       width: 40px;
       height: 3px;
-      background: var(--amber);
+      background: var(--accent);
       border-radius: 2px;
       margin-bottom: 14px;
     }
@@ -295,7 +296,7 @@
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--amber);
+      color: var(--accent);
     }
 
     /* ===== NAVBAR ===== */
@@ -346,7 +347,7 @@
     }
 
     .logo .logo-amber {
-      color: var(--amber);
+      color: var(--accent);
     }
 
     .navbar.scrolled .logo {
@@ -388,7 +389,7 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: var(--amber);
+      background: var(--accent);
       transition: transform 0.2s ease;
       transform-origin: center;
     }
@@ -411,7 +412,7 @@
 
     .nav-cta {
       display: none;
-      background: var(--amber);
+      background: var(--accent);
       color: var(--navy);
       padding: 10px 22px;
       border-radius: 6px;
@@ -427,7 +428,7 @@
     }
 
     .nav-cta:hover {
-      background: #E8920D;
+      background: #173CB3;
       transform: translateY(-1px);
     }
 
@@ -626,7 +627,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--amber);
+      background: var(--accent);
       color: var(--navy);
       padding: 16px 32px;
       border-radius: 8px;
@@ -641,7 +642,7 @@
     }
 
     .hero-cta:hover {
-      background: #E8920D;
+      background: #173CB3;
       transform: translateY(-1px);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 12px 32px rgba(245, 166, 35, 0.35);
     }
@@ -674,7 +675,7 @@
     }
 
     .trust-badge .star {
-      color: var(--amber);
+      color: var(--accent);
     }
 
     .hero-visual {
@@ -745,7 +746,7 @@
 
     .segment-card {
       background: #FFFFFF;
-      border: 1px solid #E5E7EB;
+      border: 1px solid var(--card-border);
       border-radius: 16px;
       padding: 0 0 32px 0;
       transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
@@ -759,7 +760,7 @@
     .segment-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-      border-color: var(--amber);
+      border-color: var(--accent);
     }
 
     .segment-img {
@@ -835,7 +836,7 @@
     /* ===== WHY TRUST HELIONEST ===== */
     .trust-section {
       padding: 96px 0;
-      background: #F5F4F0;
+      background: #F0F4F8;
     }
 
     @media (min-width: 1024px) {
@@ -884,7 +885,7 @@
     .trust-icon {
       width: 64px;
       height: 64px;
-      background: var(--amber);
+      background: var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -922,7 +923,7 @@
     /* ===== STATS SECTION ===== */
     .stats-section {
       padding: 70px 0 60px;
-      background: #F5F4F0;
+      background: #F0F4F8;
     }
 
     @media (min-width: 1024px) {
@@ -1018,7 +1019,7 @@
       max-width: 640px;
       margin: 0 auto;
       background: #FFFFFF;
-      border: 1px solid #E5E7EB;
+      border: 1px solid var(--card-border);
       border-radius: 20px;
       padding: 40px 28px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
@@ -1059,7 +1060,7 @@
     .form-input {
       width: 100%;
       padding: 14px 18px;
-      background: #F5F4F0;
+      background: #F0F4F8;
       border: 1.5px solid transparent;
       border-radius: 10px;
       font-size: 16px;
@@ -1069,7 +1070,7 @@
     .form-input:focus {
       outline: none;
       background: #FFFFFF;
-      border-color: var(--amber);
+      border-color: var(--accent);
     }
 
     .form-input.error {
@@ -1105,7 +1106,7 @@
       padding: 10px 18px;
       border: none;
       border-radius: 8px;
-      background: #F5F4F0;
+      background: #F0F4F8;
       font-size: 14px;
       font-weight: 600;
       color: #374151;
@@ -1117,7 +1118,7 @@
     }
 
     .pill-btn:hover {
-      background: #E8E7E3;
+      background: #E0E7FF;
     }
 
     .pill-btn.active {
@@ -1129,7 +1130,7 @@
     .calc-submit {
       width: 100%;
       padding: 16px;
-      background: var(--amber);
+      background: var(--accent);
       color: var(--navy);
       border-radius: 8px;
       font-size: 16px;
@@ -1142,7 +1143,7 @@
     }
 
     .calc-submit:hover {
-      background: #E8920D;
+      background: #173CB3;
       transform: translateY(-1px);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 12px 32px rgba(245, 166, 35, 0.35);
     }
@@ -1165,7 +1166,7 @@
       background: var(--card);
       border-radius: 14px;
       padding: 28px;
-      border: 1px solid #E5E7EB;
+      border: 1px solid var(--card-border);
     }
 
     .calc-result-soon {
@@ -1181,7 +1182,7 @@
     .calc-result-soon svg {
       width: 48px;
       height: 48px;
-      color: var(--amber);
+      color: var(--accent);
       margin-bottom: 12px;
     }
 
@@ -1203,7 +1204,7 @@
       display: flex;
       justify-content: space-between;
       padding: 10px 0;
-      border-bottom: 1px solid #E5E7EB;
+      border-bottom: 1px solid var(--card-border);
       font-size: 14px;
     }
 
@@ -1263,7 +1264,7 @@
       top: 0;
       bottom: 0;
       width: 0;
-      border-left: 2px dashed #E5E7EB;
+      border-left: 2px dashed var(--card-border);
     }
 
     @media (min-width: 640px) {
@@ -1339,7 +1340,7 @@
       left: 0;
       width: 48px;
       height: 48px;
-      background: var(--amber);
+      background: var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1450,7 +1451,7 @@
     }
 
     .rating-stars {
-      color: var(--amber);
+      color: var(--accent);
       font-size: 16px;
     }
 
@@ -1501,7 +1502,7 @@
       top: -16px;
       left: 24px;
       font-size: 180px;
-      color: #F5A623;
+      color: #1D4ED8;
       opacity: 0.07;
       font-family: Georgia, serif;
       line-height: 1;
@@ -1523,7 +1524,7 @@
     .quote-mark {
       font-size: 48px;
       line-height: 1;
-      color: var(--amber);
+      color: var(--accent);
       font-family: Georgia, serif;
       margin-bottom: 8px;
       display: none;
@@ -1545,7 +1546,7 @@
     .author-avatar {
       width: 44px;
       height: 44px;
-      background: var(--amber);
+      background: var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1574,7 +1575,7 @@
     /* ===== FAQ ACCORDION ===== */
     .faq-section {
       padding: 96px 0;
-      background: #F5F4F0;
+      background: #F0F4F8;
     }
 
     @media (min-width: 1024px) {
@@ -1635,7 +1636,7 @@
     }
 
     .faq-question:hover {
-      color: var(--amber);
+      color: var(--accent);
     }
 
     .faq-icon {
@@ -1757,7 +1758,7 @@
 
     .lead-form .form-input:focus {
       background: rgba(255, 255, 255, 0.1);
-      border-color: var(--amber);
+      border-color: var(--accent);
     }
 
     .lead-form .form-input.error {
@@ -1775,8 +1776,8 @@
     }
 
     .lead-form .pill-btn.active {
-      background: var(--amber);
-      border-color: var(--amber);
+      background: var(--accent);
+      border-color: var(--accent);
       color: var(--navy);
     }
 
@@ -1790,7 +1791,7 @@
     .checkbox-group input[type="checkbox"] {
       width: 18px;
       height: 18px;
-      accent-color: var(--amber);
+      accent-color: var(--accent);
       margin-top: 2px;
       flex-shrink: 0;
     }
@@ -1802,14 +1803,14 @@
     }
 
     .checkbox-group a {
-      color: var(--amber);
+      color: var(--accent);
       text-decoration: underline;
     }
 
     .lead-submit {
       width: 100%;
       padding: 16px;
-      background: var(--amber);
+      background: var(--accent);
       color: var(--navy);
       border-radius: 8px;
       font-size: 16px;
@@ -1820,7 +1821,7 @@
     }
 
     .lead-submit:hover {
-      background: #E8920D;
+      background: #173CB3;
       transform: translateY(-1px);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 12px 32px rgba(245, 166, 35, 0.35);
     }
@@ -1943,7 +1944,7 @@
     }
 
     .social-row a:hover {
-      background: var(--amber);
+      background: var(--accent);
     }
 
     .social-row a:hover svg {
@@ -2056,7 +2057,7 @@
 
     .mobile-sticky-form .submit-btn {
       padding: 12px 20px;
-      background: var(--amber);
+      background: var(--accent);
       color: var(--navy);
       border-radius: 10px;
       font-size: 14px;
@@ -2076,6 +2077,122 @@
         display: none !important;
       }
     }
+
+    /* ===== HERO INPUTS & EXTRA STYLES ===== */
+    .hero-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      font-size: 14px;
+      color: #FFFFFF;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .hero-input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent);
+    }
+
+    .hero-input.error {
+      border-color: #EF4444;
+      animation: shake 0.4s ease;
+    }
+
+    .products-grid,
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 768px) {
+
+      .products-grid,
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .product-card,
+    .service-card {
+      background: var(--card);
+      border: 1.5px solid var(--card-border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover,
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(29, 78, 216, 0.08);
+      border-color: var(--accent);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(29, 78, 216, 0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .card-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .product-card h3,
+    .service-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .product-card p,
+    .service-card p {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .specs-list,
+    .features-list {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px dashed var(--card-border);
+    }
+
+    .specs-list li,
+    .features-list li {
+      font-size: 13.5px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .specs-list li::before,
+    .features-list li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -2087,21 +2204,26 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="container navbar-inner">
-      <a href="#" class="logo">
-        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="14" cy="14" r="7" fill="#F5A623" />
+      <a href="#" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+          style="width: 32px; height: 32px; flex-shrink: 0;">
+          <circle cx="14" cy="14" r="7" fill="#1D4ED8" />
           <path
             d="M14 2V6M14 22V26M2 14H6M22 14H26M5.64 5.64L8.46 8.46M19.54 19.54L22.36 22.36M5.64 22.36L8.46 19.54M19.54 8.46L22.36 5.64"
-            stroke="#F5A623" stroke-width="2" stroke-linecap="round" />
+            stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" />
         </svg>
-        <span>Helio</span><span class="logo-amber">Nest</span>
+        <span style="display: flex; flex-direction: column; line-height: 0.95;">
+          <span style="font-size: 19px; font-weight: 800; letter-spacing: -0.01em;">Kotieswara Associates</span>
+          <span
+            style="font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-top: 3px;">Solar</span>
+        </span>
       </a>
 
       <div class="nav-links">
-        <a href="#solutions">Solutions</a>
-        <a href="#cities">Cities</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
         <a href="#calculator">Calculator</a>
-        <a href="#blog">Blog</a>
+        <a href="#faq">FAQ</a>
         <a href="#lead-form" class="nav-cta">Get Free Quote</a>
       </div>
 
@@ -2115,10 +2237,10 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
-      <a href="#solutions" class="mobile-link">Solutions</a>
-      <a href="#cities" class="mobile-link">Cities</a>
+      <a href="#products" class="mobile-link">Products</a>
+      <a href="#services" class="mobile-link">Services</a>
       <a href="#calculator" class="mobile-link">Calculator</a>
-      <a href="#blog" class="mobile-link">Blog</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
       <a href="#lead-form" class="nav-cta mobile-link">Get Free Quote</a>
     </div>
   </nav>
@@ -2127,66 +2249,240 @@
   <section class="hero" id="hero">
     <div class="container hero-inner">
       <div class="hero-content">
-        <h1 class="hero-headline" style="text-shadow: 0 4px 20px rgba(0,0,0,0.4);">The Sun Rises. Your Bills Don't Have
-          To.</h1>
-        <p class="hero-sub" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #E2E8F0;">With HelioNest, save up to
-          90% on electricity bills — backed by India's only Solar Savings Guarantee.</p>
-        <a href="#lead-form" class="hero-cta">
-          Get Free Consultation
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
+        <h1 class="hero-headline" style="text-shadow: 0 4px 20px rgba(0,0,0,0.4);">Your Trusted Solar Partner.</h1>
+        <p class="hero-sub" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #E2E8F0;">Kotieswara Associates helps
+          you cut electricity bills by up to 90% with premium, government-approved solar solutions. Get an expert design
+          and all subsidies handled end-to-end.</p>
+
         <div class="trust-badge"
-          style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); color: #FFF; border: 1px solid rgba(255,255,255,0.2);">
-          <span class="star">&#9733;</span>
-          <span><strong style="color:#F5A623;">4.9</strong> on Google &middot; 8,000+ homes powered</span>
+          style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); color: #FFF; border: 1px solid rgba(255,255,255,0.2); margin-top: 10px;">
+          <span class="star" style="color: var(--accent);">&#9733;</span>
+          <span><strong style="color:var(--accent);">4.9</strong> on Google &middot; 8,000+ projects completed</span>
+        </div>
+      </div>
+
+      <!-- Inline Quote Enquiry Form -->
+      <div class="hero-form-container"
+        style="flex: 1; max-width: 440px; width: 100%; border-radius: 16px; background: rgba(10, 22, 40, 0.95); border: 1.5px solid #DBEAFE; padding: 28px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35); text-align: left;"
+        data-aos="fade-left">
+        <h3
+          style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+          Get a Free Quote</h3>
+        <p style="font-size: 13.5px; color: #CBD5E1; margin-bottom: 20px; font-family: 'Inter', sans-serif;">Fill in
+          your details for a free customized solar solution report.</p>
+
+        <form id="heroQuoteForm" style="display: flex; flex-direction: column; gap: 14px;">
+          <div>
+            <label
+              style="display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #94A3B8; margin-bottom: 5px;">Full
+              Name</label>
+            <input type="text" id="heroName" class="hero-input" placeholder="Your Full Name" required />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div>
+              <label
+                style="display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #94A3B8; margin-bottom: 5px;">Phone
+                Number</label>
+              <input type="tel" id="heroPhone" class="hero-input" placeholder="10-digit number" required maxlength="10"
+                inputmode="numeric" />
+            </div>
+            <div>
+              <label
+                style="display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #94A3B8; margin-bottom: 5px;">Pincode</label>
+              <input type="text" id="heroPin" class="hero-input" placeholder="6-digit PIN" required maxlength="6"
+                inputmode="numeric" />
+            </div>
+          </div>
+          <div>
+            <label
+              style="display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #94A3B8; margin-bottom: 5px;">Product
+              Interest</label>
+            <select id="heroProduct" class="hero-input" required style="appearance: none; -webkit-appearance: none;">
+              <option value="" disabled selected style="background: #0A1628; color: #FFFFFF;">Select Product</option>
+              <option value="Solar Rooftop System" style="background: #0A1628; color: #FFFFFF;">Solar Rooftop System
+              </option>
+              <option value="Solar Street Lights" style="background: #0A1628; color: #FFFFFF;">Solar Street Lights
+              </option>
+              <option value="Solar Water Pumps" style="background: #0A1628; color: #FFFFFF;">Solar Water Pumps</option>
+              <option value="Not sure" style="background: #0A1628; color: #FFFFFF;">Not sure</option>
+            </select>
+          </div>
+          <div>
+            <label
+              style="display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #94A3B8; margin-bottom: 5px;">System
+              Size / Requirement (Optional)</label>
+            <input type="text" id="heroSize" class="hero-input" placeholder="e.g. 5kW, 15 lights" />
+          </div>
+          <button type="submit" class="submit-btn"
+            style="width: 100%; background: var(--accent); color: #FFFFFF; border: none; border-radius: 8px; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s; margin-top: 6px;">Get
+            Free Quote</button>
+        </form>
+        <div id="heroSuccessMsg" style="display: none; text-align: center; padding: 20px 0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" style="width: 48px; height: 48px; margin: 0 auto 12px; display: block;">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+          <h4 style="font-family: 'Syne', sans-serif; font-size: 18px; color: #FFFFFF; margin-bottom: 6px;">Details
+            Submitted!</h4>
+          <p style="font-size: 13.5px; color: #CBD5E1;">Our experts will contact you within 2 hours.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SEGMENT CARDS ===== -->
-  <section class="segment-section" id="solutions">
+  <!-- ===== PRODUCTS SECTION ===== -->
+  <section class="segment-section" id="products" style="background: var(--bg);">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>Solutions</span></div>
-      <h2 class="section-heading" data-aos="fade-up">Get Solar For</h2>
-      <div class="segment-grid">
-        <!-- Homes -->
-        <div class="segment-card" data-aos="fade-up" data-aos-delay="0">
-          <div class="segment-img">
-            <img src="./segment_homes.png" alt="Home Solar Panels" />
+      <div class="section-eyebrow" data-aos="fade-up"><span>Our Offerings</span></div>
+      <h2 class="section-heading" data-aos="fade-up">Our Solar Products</h2>
+
+      <p style="text-align: center; max-width: 700px; margin: -20px auto 40px; color: var(--muted); font-size: 16px;"
+        data-aos="fade-up">
+        High-efficiency, MNRE-approved solar products engineered for maximum durability, performance, and financial
+        returns.
+      </p>
+
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
           </div>
-          <div class="segment-content">
-            <h3>Homes</h3>
-            <p>Cut your monthly bill by 90%. Starting ₹0 down.</p>
-            <a href="#" class="segment-link">Learn More <span>&rarr;</span></a>
-          </div>
+          <h3>Solar Rooftop System</h3>
+          <p>Convert your idle roof space into an independent clean energy plant. Perfect for residential complexes,
+            bungalows, housing societies, and commercial enterprises.</p>
+          <ul class="specs-list">
+            <li>Reduces electricity bills by up to 90%</li>
+            <li>Available in 1kW to 500kW capacity range</li>
+            <li>Grid-tied (net metering), off-grid, and hybrid variants</li>
+            <li>Qualifies for direct central government capital subsidies</li>
+          </ul>
         </div>
 
-        <!-- Housing Societies -->
-        <div class="segment-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="segment-img">
-            <img src="./segment_society.png" alt="Housing Society Solar" />
+        <!-- Product 2 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="12" y1="2" x2="12" y2="22" />
+              <path d="M12 2a5 5 0 0 0-5 5v3h10V7a5 5 0 0 0-5-5z" />
+              <circle cx="12" cy="18" r="1" />
+            </svg>
           </div>
-          <div class="segment-content">
-            <h3>Housing Societies</h3>
-            <p>Slash common area costs. Add long-term property value.</p>
-            <a href="#" class="segment-link">Learn More <span>&rarr;</span></a>
-          </div>
+          <h3>Solar Street Lights</h3>
+          <p>Clean, smart, and fully standalone lighting units designed specifically for reliable outdoor illumination.
+            Ideal for remote communities, public spaces, and security corridors.</p>
+          <ul class="specs-list">
+            <li>All-in-one and integrated lithium battery models</li>
+            <li>PIR motion sensor enabled with adaptive brightness</li>
+            <li>Automatic dusk-to-dawn intelligent controller operations</li>
+            <li>High-capacity LiFePO4 battery backup for up to 3 days</li>
+          </ul>
         </div>
 
-        <!-- Commercial -->
-        <div class="segment-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="segment-img">
-            <img src="./segment_commercial.png" alt="Commercial Solar Installation" />
+        <!-- Product 3 -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z" />
+              <path d="M2 15h20" stroke-dasharray="3,3" />
+            </svg>
           </div>
-          <div class="segment-content">
-            <h3>Commercial</h3>
-            <p>Power your business green. Claim full tax benefits.</p>
-            <a href="#" class="segment-link">Learn More <span>&rarr;</span></a>
+          <h3>Solar Water Pumps</h3>
+          <p>High-reliability solar pumping sets built to operate under tough weather conditions. Power your water
+            distribution networks directly from solar energy without running grid lines.</p>
+          <ul class="specs-list">
+            <li>Surface and deep submersible pump variants</li>
+            <li>Wide power options from 1HP up to 10HP capacity</li>
+            <li>Ideal for farms, micro-irrigation, and community projects</li>
+            <li>Both high-efficiency DC and robust AC motor options</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section class="segment-section" id="services" style="background: var(--white-off);">
+    <div class="container">
+      <div class="section-eyebrow" data-aos="fade-up"><span>Expert Services</span></div>
+      <h2 class="section-heading" data-aos="fade-up">Our Dedicated Services</h2>
+
+      <p style="text-align: center; max-width: 700px; margin: -20px auto 40px; color: var(--muted); font-size: 16px;"
+        data-aos="fade-up">
+        From initial site evaluations to lifelong optimization, Kotieswara Associates handles all steps of your solar
+        transition.
+      </p>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </svg>
           </div>
+          <h3>Supply and Distribution</h3>
+          <p>We source, warehouse, and supply premium-grade solar components across India. All materials are
+            direct-sourced to ensure pricing efficiency.</p>
+          <ul class="features-list">
+            <li>Sourcing of solar panels, inverters, and battery banks</li>
+            <li>Fully certified components (MNRE ALMM and ISI approved)</li>
+            <li>Heavy-duty hot-dip galvanized module mounting structures</li>
+            <li>Reliable, pan-India logistics and distribution coverage</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2" />
+              <polyline points="2 17 12 22 22 17" />
+              <polyline points="2 12 12 17 22 12" />
+            </svg>
+          </div>
+          <h3>Installation</h3>
+          <p>Our in-house experienced technicians install solar arrays to structural and electrical excellence
+            guidelines, ensuring system safety.</p>
+          <ul class="features-list">
+            <li>End-to-end commissioning by certified technicians</li>
+            <li>Detailed site layout assessment and engineering design</li>
+            <li>Handling of all discom safety tests and approvals</li>
+            <li>Subsidy filing and net metering documentation handled</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+          </div>
+          <h3>Maintenance</h3>
+          <p>Keep your solar generation optimal throughout its lifespan. We provide routine testing, cleaning, and
+            performance log checks.</p>
+          <ul class="features-list">
+            <li>Structured Annual Maintenance Contracts (AMC) available</li>
+            <li>Panel cleaning, string checks, and cable inspections</li>
+            <li>Inverter health checks and generation data analysis</li>
+            <li>24/7 technical query support and service dispatch</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -2195,8 +2491,8 @@
   <!-- ===== WHY TRUST HELIONEST ===== -->
   <section class="trust-section">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>Why HelioNest</span></div>
-      <h2 class="section-heading" data-aos="fade-up">Why Trust HelioNest</h2>
+      <div class="section-eyebrow" data-aos="fade-up"><span>Why Kotieswara Associates</span></div>
+      <h2 class="section-heading" data-aos="fade-up">Why Trust Kotieswara Associates</h2>
       <div class="trust-grid">
         <!-- Pillar 1 -->
         <div class="trust-card" data-aos="fade-up" data-aos-delay="0">
@@ -2207,7 +2503,7 @@
               <path d="M9 12l2 2 4-4" />
             </svg>
           </div>
-          <h3>NestGuard&trade; Savings Promise</h3>
+          <h3>&trade; Savings Promise</h3>
           <p>Money-back guarantee if you don't save ₹8/unit. We put our money where our mouth is.</p>
         </div>
 
@@ -2235,7 +2531,7 @@
               <path d="M16 11V7a4 4 0 0 0-4-4 4 4 0 0 0-4 4v4" />
             </svg>
           </div>
-          <h3>StormShield Mount&trade;</h3>
+          <h3>IIT-Certified Wind Mounts&trade;</h3>
           <p>Tested for 180 kmph winds. IIT-certified structure built for Indian weather.</p>
         </div>
 
@@ -2348,8 +2644,8 @@
               electrical compatibility — all at no cost.</p>
           </div>
           <div class="process-step-visual">
-            <img src="https://placehold.co/280x200/F9FAFB/0A1628?text=Survey+Icon&font=inter" alt="Rooftop Survey"
-              loading="lazy" />
+            <img src="./process_survey.png" alt="Rooftop Survey" loading="lazy"
+              style="border-radius: 12px; object-fit: cover; width: 100%; height: 100%; border: 1.5px solid var(--card-border);" />
           </div>
         </div>
 
@@ -2362,8 +2658,8 @@
               photorealistic preview of your rooftop solar setup.</p>
           </div>
           <div class="process-step-visual">
-            <img src="https://placehold.co/280x200/F9FAFB/0A1628?text=3D+Design&font=inter" alt="3D Design"
-              loading="lazy" />
+            <img src="./process_design.png" alt="3D Design" loading="lazy"
+              style="border-radius: 12px; object-fit: cover; width: 100%; height: 100%; border: 1.5px solid var(--card-border);" />
           </div>
         </div>
 
@@ -2376,8 +2672,8 @@
               approvals. You just sit back.</p>
           </div>
           <div class="process-step-visual">
-            <img src="https://placehold.co/280x200/F9FAFB/0A1628?text=Installation&font=inter" alt="Installation"
-              loading="lazy" />
+            <img src="./process_installation.png" alt="Installation" loading="lazy"
+              style="border-radius: 12px; object-fit: cover; width: 100%; height: 100%; border: 1.5px solid var(--card-border);" />
           </div>
         </div>
 
@@ -2390,8 +2686,8 @@
               Zero worries.</p>
           </div>
           <div class="process-step-visual">
-            <img src="https://placehold.co/280x200/F9FAFB/0A1628?text=Savings&font=inter" alt="Savings"
-              loading="lazy" />
+            <img src="./process_savings.png" alt="Savings" loading="lazy"
+              style="border-radius: 12px; object-fit: cover; width: 100%; height: 100%; border: 1.5px solid var(--card-border);" />
           </div>
         </div>
       </div>
@@ -2402,10 +2698,10 @@
 
 
   <!-- ===== TESTIMONIALS ===== -->
-  <section class="testimonials-section">
+  <section class="testimonials-section" style="background: var(--white-off);">
     <div class="container">
       <div class="testimonials-header" data-aos="fade-up">
-        <h2>90% of our customers recommend us</h2>
+        <h2>What Our Customers Say</h2>
         <div class="google-rating">
           <span class="rating-number">4.9</span>
           <div class="rating-info">
@@ -2419,13 +2715,14 @@
         <!-- Testimonial 1 -->
         <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
           <div class="quote-mark">&ldquo;</div>
-          <p class="testimonial-text">Bills dropped from ₹6,500 to under ₹200. The installation team was clean and fast.
-            Highly recommend HelioNest to every homeowner.</p>
+          <p class="testimonial-text">Our monthly residential electricity bills dropped from ₹6,500 to under ₹200. The
+            installation team was professional, tidy, and fast. Highly recommend Kotieswara Associates to every
+            homeowner going solar.</p>
           <div class="testimonial-author">
-            <div class="author-avatar">RM</div>
+            <div class="author-avatar" style="background-color: var(--accent); color: #FFFFFF;">RM</div>
             <div class="author-info">
-              <div class="author-name">Rajan Mehta</div>
-              <div class="author-city">Pune</div>
+              <div class="author-name">[Client Name]</div>
+              <div class="author-city">[City]</div>
             </div>
           </div>
         </div>
@@ -2433,13 +2730,14 @@
         <!-- Testimonial 2 -->
         <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
           <div class="quote-mark">&ldquo;</div>
-          <p class="testimonial-text">HelioNest handled the subsidy process entirely. We didn't lift a finger. The app
-            is fantastic — I check my savings every morning!</p>
+          <p class="testimonial-text">They handled the government subsidy process entirely. We did not lift a single
+            finger. The grid integration was completed smoothly and we began seeing savings from the very first month.
+          </p>
           <div class="testimonial-author">
-            <div class="author-avatar">PV</div>
+            <div class="author-avatar" style="background-color: var(--accent); color: #FFFFFF;">PV</div>
             <div class="author-info">
-              <div class="author-name">Priya Venkataraman</div>
-              <div class="author-city">Chennai</div>
+              <div class="author-name">[Client Name]</div>
+              <div class="author-city">[City]</div>
             </div>
           </div>
         </div>
@@ -2447,13 +2745,14 @@
         <!-- Testimonial 3 -->
         <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
           <div class="quote-mark">&ldquo;</div>
-          <p class="testimonial-text">Generating 28 units daily. Already recovered 60% of the cost in Year 1. The
-            NestGuard guarantee gave me the confidence to go solar.</p>
+          <p class="testimonial-text">Generating outstanding power daily. Already recovered a significant portion of our
+            initial setup investment in year one. Their mounting structures are solid and easily weathered heavy
+            cyclones.</p>
           <div class="testimonial-author">
-            <div class="author-avatar">AB</div>
+            <div class="author-avatar" style="background-color: var(--accent); color: #FFFFFF;">AB</div>
             <div class="author-info">
-              <div class="author-name">Arjun Bose</div>
-              <div class="author-city">Kolkata</div>
+              <div class="author-name">[Client Name]</div>
+              <div class="author-city">[City]</div>
             </div>
           </div>
         </div>
@@ -2462,43 +2761,43 @@
   </section>
 
   <!-- ===== FAQ ACCORDION ===== -->
-  <section class="faq-section" id="blog">
+  <section class="faq-section" id="faq" style="background: var(--bg);">
     <div class="container faq-container">
       <h2 data-aos="fade-up">Frequently Asked Questions</h2>
 
       <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
         <button class="faq-question">
-          How much can I actually save with HelioNest?
+          How much can I save with Kotieswara Associates?
           <span class="faq-icon"></span>
         </button>
         <div class="faq-answer">
-          <p>Most HelioNest customers save between 70-90% on their electricity bills. For a home with a monthly bill of
-            ₹3,000, that translates to savings of ₹2,500+ per month or over ₹30,000 annually. With our NestGuard™
-            guarantee, we promise minimum savings of ₹8 per unit — or your money back.</p>
+          <p>Most customers save between 70-90% on their electricity bills. For a home with a monthly bill of ₹3,000,
+            that translates to savings of ₹2,500+ per month or over ₹30,000 annually. Subsidies under current schemes
+            allow quick payback periods within 3 to 4 years.</p>
         </div>
       </div>
 
       <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
         <button class="faq-question">
-          What is the GreenZero&trade; savings guarantee?
+          What is the solar panel warranty and payback period?
           <span class="faq-icon"></span>
         </button>
         <div class="faq-answer">
-          <p>GreenZero™ is India's only guaranteed solar savings plan. If your system doesn't generate the promised
-            savings of ₹8/unit, we refund the difference. It includes proactive quarterly maintenance, zero repair costs
-            for 5 years, and real-time app tracking to compare promised vs actual savings.</p>
+          <p>Our Tier-1 solar panels come with a 25-year performance warranty and a 10-year product warranty. For
+            grid-tied systems under typical Indian utility rates, the payback period lies between 3 to 4 years. After
+            this period, you generate free solar energy for decades.</p>
         </div>
       </div>
 
       <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
         <button class="faq-question">
-          How long does installation take?
+          How long does the installation take?
           <span class="faq-icon"></span>
         </button>
         <div class="faq-answer">
-          <p>Most residential installations are completed in a single day. Here's the timeline: Free survey (Day 1-2),
-            Custom design approval (Day 3-5), Installation (Day 6 — single day), Government inspection & commissioning
-            (Day 7-15). You'll start saving from Day 1 of going live.</p>
+          <p>Most residential installations are completed in a single day. Here is the estimated timeline: Free roof
+            site survey (Day 1-2), Custom engineering design (Day 3-5), Module installation (Day 6 - single day), Discom
+            net-metering inspection and going live (Day 7-15).</p>
         </div>
       </div>
 
@@ -2508,68 +2807,79 @@
           <span class="faq-icon"></span>
         </button>
         <div class="faq-answer">
-          <p>Yes! Solar panels generate electricity from diffused sunlight, not just direct sun. On cloudy days, output
-            drops to 25-40% of peak — but your annual savings remain strong because India receives abundant sunshine
-            year-round. We factor in local weather data when designing your system.</p>
+          <p>Yes. Solar panels generate power from diffused sunlight. On heavily overcast days, production will drop to
+            25-40% of peak capacity, but overall annual yields remain highly profitable since India receives extensive
+            sunny days year-round.</p>
         </div>
       </div>
 
       <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
         <button class="faq-question">
-          What subsidies am I eligible for?
+          What government subsidies are currently active?
           <span class="faq-icon"></span>
         </button>
         <div class="faq-answer">
-          <p>Under the MNRE scheme, homeowners can get up to 40% subsidy on systems up to 3kW, and 20% for 3-10kW
-            systems. Many states offer additional subsidies. HelioNest handles all subsidy paperwork end-to-end — we've
-            helped customers claim over ₹42 Crore in subsidies so far.</p>
+          <p>Under the national solar schemes, residential rooftops can receive direct capital subsidies from MNRE. This
+            ranges up to ₹78,000 based on capacity. Kotieswara Associates handles all applications, approvals, and
+            dispatch verification for a smooth experience.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== LEAD CAPTURE FORM ===== -->
-  <section class="lead-section" id="lead-form">
+  <section class="lead-section" id="lead-form" style="background: #0A1628;">
     <div class="container">
       <div class="lead-inner" data-aos="fade-up">
         <h2>Talk to a Solar Expert</h2>
-        <p>Get genuine advice. No pushy sales.</p>
+        <p>Get facts, specifications, and layout advice. No pushy sales calls.</p>
 
         <form class="lead-form" id="leadForm" novalidate>
           <div class="form-group">
             <label class="form-label">Full Name</label>
-            <input type="text" class="form-input" id="leadName" placeholder="Your full name" />
+            <input type="text" class="form-input" id="leadName" placeholder="Your full name"
+              style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.15); color: #FFFFFF;" />
           </div>
 
           <div class="form-group">
             <label class="form-label">WhatsApp Number</label>
             <input type="tel" class="form-input" id="leadPhone" placeholder="10-digit mobile number" maxlength="10"
-              inputmode="numeric" />
+              inputmode="numeric"
+              style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.15); color: #FFFFFF;" />
           </div>
 
           <div class="form-group">
             <label class="form-label">PIN Code</label>
             <input type="text" class="form-input" id="leadPin" placeholder="6-digit PIN code" maxlength="6"
-              inputmode="numeric" />
+              inputmode="numeric"
+              style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.15); color: #FFFFFF;" />
           </div>
 
           <div class="form-group">
-            <label class="form-label">Monthly Bill</label>
+            <label class="form-label">Monthly Bill Range</label>
             <div class="pill-group" id="leadBillPills">
-              <button type="button" class="pill-btn" data-value="1000">&#8377;500 – 1,500</button>
-              <button type="button" class="pill-btn" data-value="2250">&#8377;1,500 – 3,000</button>
-              <button type="button" class="pill-btn" data-value="4500">&#8377;3,000 – 6,000</button>
-              <button type="button" class="pill-btn" data-value="8000">&#8377;6,000+</button>
+              <button type="button" class="pill-btn" data-value="1000"
+                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #CBD5E1;">&#8377;500
+                – 1,500</button>
+              <button type="button" class="pill-btn" data-value="2250"
+                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #CBD5E1;">&#8377;1,500
+                – 3,000</button>
+              <button type="button" class="pill-btn" data-value="4500"
+                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #CBD5E1;">&#8377;3,000
+                – 6,000</button>
+              <button type="button" class="pill-btn" data-value="8000"
+                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #CBD5E1;">&#8377;6,000+</button>
             </div>
           </div>
 
           <div class="checkbox-group">
-            <input type="checkbox" id="leadTerms" />
-            <label for="leadTerms">I agree to the <a href="#">Terms of Service</a> and consent to being contacted via
-              WhatsApp/SMS.</label>
+            <input type="checkbox" id="leadTerms" style="accent-color: var(--accent);" />
+            <label for="leadTerms" style="color: #94A3B8;">I agree to the Terms of Service and consent to being
+              contacted via WhatsApp/SMS.</label>
           </div>
 
-          <button type="submit" class="lead-submit">Get Free Quote</button>
+          <button type="submit" class="lead-submit" style="background: var(--accent); color: #FFFFFF;">Get Free
+            Quote</button>
         </form>
 
         <div class="lead-success" id="leadSuccess">
@@ -2579,88 +2889,81 @@
             <polyline points="22 4 12 14.01 9 11.01" />
           </svg>
           <h3>Details Submitted!</h3>
-          <p>Our team will call you within 2 hours.</p>
+          <p>Our solar advisors will call you within 2 hours.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
+  <footer class="footer" style="background: #0A1628; border-top: 1px solid var(--card-border);">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#" class="logo">
-            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="14" cy="14" r="7" fill="#F5A623" />
+          <a href="#" class="logo" style="display: flex; align-items: center; gap: 8px;">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px;">
+              <circle cx="14" cy="14" r="7" fill="#1D4ED8" />
               <path
                 d="M14 2V6M14 22V26M2 14H6M22 14H26M5.64 5.64L8.46 8.46M19.54 19.54L22.36 22.36M5.64 22.36L8.46 19.54M19.54 8.46L22.36 5.64"
-                stroke="#F5A623" stroke-width="2" stroke-linecap="round" />
+                stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" />
             </svg>
-            <span>Helio</span><span class="logo-amber">Nest</span>
+            <span style="display: flex; flex-direction: column; line-height: 0.95;">
+              <span style="font-size: 14px; font-weight: 800; color: #FFFFFF;">Kotieswara Associates</span>
+              <span
+                style="font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-top: 2px;">Solar</span>
+            </span>
           </a>
-          <p>Your Home. Powered Forever. India's fastest-growing home solar brand.</p>
+          <p style="margin-top: 15px;">Your Trusted Solar Partner. India's reliable solar solutions provider.</p>
           <div class="social-row">
-            <a href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
+              </svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
                 <path
                   d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.46z" />
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-              </svg>
-            </a>
-            <a href="#" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
+              </svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />
                 <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-            <a href="#" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
+              </svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-              </svg>
-            </a>
+              </svg></a>
           </div>
         </div>
 
         <div class="footer-col">
           <h4>Offerings</h4>
           <ul>
-            <li><a href="#">Home Solar</a></li>
-            <li><a href="#">Society Solar</a></li>
-            <li><a href="#">Commercial Solar</a></li>
-            <li><a href="#">GreenZero&trade; Plan</a></li>
+            <li><a href="#products">Solar Rooftop System</a></li>
+            <li><a href="#products">Solar Street Lights</a></li>
+            <li><a href="#products">Solar Water Pumps</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Solutions</h4>
           <ul>
-            <li><a href="#">Rooftop Solar</a></li>
-            <li><a href="#">Solar Calculator</a></li>
-            <li><a href="#">Subsidy Guide</a></li>
-            <li><a href="#">EMI Options</a></li>
+            <li><a href="#calculator">Solar Calculator</a></li>
+            <li><a href="#faq">Subsidy Guide</a></li>
+            <li><a href="#faq">FAQ Board</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#services">Services</a></li>
           </ul>
         </div>
 
@@ -2668,14 +2971,14 @@
           <h4>Contact Us</h4>
           <ul>
             <li><a href="tel:18001234567">1800-123-4567</a></li>
-            <li><a href="mailto:hello@helionest.in">hello@helionest.in</a></li>
-            <li><a href="#">Bangalore, India</a></li>
+            <li><a href="mailto:info@kotieswara.com">info@kotieswara.com</a></li>
+            <li><a href="#">Tamil Nadu, India</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p>&copy; 2025 HelioNest. All rights reserved.</p>
+      <div class="footer-bottom" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
+        <p>&copy; 2026 Kotieswara Associates. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -2687,13 +2990,13 @@
   <!-- ===== MOBILE STICKY BOTTOM FORM ===== -->
   <div class="mobile-sticky-form" id="mobileStickyForm">
     <button class="close-btn" id="closeStickyForm" aria-label="Close">&times;</button>
-    <h3>Switch to Solar at &#8377;0 down</h3>
+    <h3>Switch to Solar with Kotieswara Associates</h3>
     <div class="form-row">
       <input type="text" class="form-input" placeholder="Name" id="stickyName" />
       <input type="tel" class="form-input" placeholder="WhatsApp" id="stickyPhone" maxlength="10" inputmode="numeric" />
       <input type="text" class="form-input" placeholder="PIN" id="stickyPin" maxlength="6" inputmode="numeric"
         style="max-width:70px;" />
-      <button type="button" class="submit-btn" id="stickySubmit">Get Quote</button>
+      <button type="button" class="submit-btn" id="stickySubmit">Get Free Quote</button>
     </div>
   </div>
 
@@ -2903,6 +3206,60 @@
       calcResult.classList.add('show');
     });
 
+    // ===== HERO QUOTE FORM =====
+    const heroQuoteForm = document.getElementById('heroQuoteForm');
+    const heroSuccessMsg = document.getElementById('heroSuccessMsg');
+
+    if (heroQuoteForm) {
+      heroQuoteForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let isValid = true;
+
+        const name = document.getElementById('heroName');
+        const phone = document.getElementById('heroPhone');
+        const pin = document.getElementById('heroPin');
+        const product = document.getElementById('heroProduct');
+
+        [name, phone, pin, product].forEach(function (field) {
+          field.classList.remove('error');
+        });
+
+        if (!name.value.trim() || name.value.trim().length < 2) {
+          name.classList.add('error');
+          isValid = false;
+        }
+
+        if (!phone.value.trim() || phone.value.trim().length !== 10) {
+          phone.classList.add('error');
+          isValid = false;
+        }
+
+        if (!pin.value.trim() || pin.value.trim().length !== 6) {
+          pin.classList.add('error');
+          isValid = false;
+        }
+
+        if (!product.value) {
+          product.classList.add('error');
+          isValid = false;
+        }
+
+        if (isValid) {
+          heroQuoteForm.style.display = 'none';
+          heroSuccessMsg.style.display = 'block';
+        }
+      });
+    }
+
+    ['heroPhone', 'heroPin'].forEach(function (id) {
+      const field = document.getElementById(id);
+      if (field) {
+        field.addEventListener('input', function (e) {
+          e.target.value = e.target.value.replace(/\D/g, '');
+        });
+      }
+    });
+
     // ===== LEAD FORM =====
     const leadForm = document.getElementById('leadForm');
     const leadBillPills = document.querySelectorAll('#leadBillPills .pill-btn');
@@ -3053,7 +3410,7 @@
     // Adding a subtle footer CTA strip above the footer
     const footerCTA = document.createElement('div');
     footerCTA.style.cssText = 'background:#0A1628;border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;text-align:center;';
-    footerCTA.innerHTML = '<div class="container" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;"><p style="color:#CBD5E1;font-size:15px;margin:0;">Switch to Solar at <strong style="color:#F5A623;">&#8377;0 Investment</strong> — Govt. subsidy covers your down payment.</p><a href="#lead-form" style="background:#F5A623;color:#0A1628;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap;">Start Today &rarr;</a></div>';
+    footerCTA.innerHTML = '<div class="container" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;"><p style="color:#CBD5E1;font-size:15px;margin:0;">Switch to Solar with <strong style="color:var(--accent);">Zero Down Payment</strong> — Govt. subsidies handle the setup costs.</p><a href="#lead-form" style="background:var(--accent);color:#FFFFFF;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap;">Start Today &rarr;</a></div>';
 
     const footerEl = document.querySelector('.footer');
     footerEl.parentNode.insertBefore(footerCTA, footerEl);
