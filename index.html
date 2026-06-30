@@ -36,10 +36,11 @@
 
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      color: #111827;
-      background: #FFFFFF;
+      color: #374151;
+      background: var(--bg);
       overflow-x: clip;
-      line-height: 1.6;
+      line-height: 1.75;
+      font-size: 17px;
     }
 
     h1,
@@ -49,8 +50,9 @@
     h5,
     h6 {
       font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      line-height: 1.15;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
     }
 
     a {
@@ -129,12 +131,13 @@
       --accent: #1D4ED8;
       --green: #22C55E;
       --dark: #0A1628;
-      --muted: #64748B;
-      --bg: #FFFFFF;
-      --card: #FFFFFF;
-      --card-border: #DBEAFE;
-      --dark-section: #0A1628;
-      --white-off: #F0F4F8;
+      --muted: #4B5563;
+      --bg: #FAFAF8;
+      --white-warm: #FAFAF8;
+      --gray-warm: #F5F4F0;
+      --footer-navy: #060F1E;
+      --card: #F5F4F0;
+      --card-border: #E5E7EB;
     }
 
     /* ===== SCROLL PROGRESS BAR ===== */
@@ -143,7 +146,7 @@
       top: 0;
       left: 0;
       height: 3px;
-      background: var(--accent);
+      background: linear-gradient(90deg, #1D4ED8, #60A5FA);
       z-index: 9999;
       width: 0%;
       transition: width 0.05s linear;
@@ -183,6 +186,56 @@
       to {
         opacity: 1;
         transform: translateY(0) skewY(0deg);
+      }
+    }
+
+    /* Masked word reveal animation */
+    .animated-word-clip {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      margin-right: 0.18em;
+    }
+
+    .animated-word-clip>span {
+      display: inline-block;
+      transform: translateY(110%);
+      animation: revealWord 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animated-word-clip:nth-child(1)>span {
+      animation-delay: 0.15s;
+    }
+
+    .animated-word-clip:nth-child(2)>span {
+      animation-delay: 0.28s;
+    }
+
+    .animated-word-clip:nth-child(3)>span {
+      animation-delay: 0.4s;
+    }
+
+    .animated-word-clip:nth-child(4)>span {
+      animation-delay: 0.52s;
+    }
+
+    @keyframes revealWord {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    /* Premium slide up fade animation for sub-elements */
+    .hero-sub-animate {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+    }
+
+    @keyframes slideUpFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -277,26 +330,33 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .section-eyebrow::before {
       content: '';
       display: block;
-      width: 40px;
+      width: 36px;
       height: 3px;
-      background: var(--accent);
+      background: var(--navy);
       border-radius: 2px;
       margin-bottom: 14px;
     }
 
+    /* Override colors on dark sections */
+    .hero .section-eyebrow::before,
+    .calc-section .section-eyebrow::before,
+    .lead-section .section-eyebrow::before {
+      background: #60A5FA;
+    }
+
     .section-eyebrow span {
       font-family: 'Inter', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #1D4ED8;
     }
 
     /* ===== NAVBAR ===== */
@@ -354,9 +414,19 @@
       color: var(--navy);
     }
 
-    .logo svg {
-      width: 28px;
-      height: 28px;
+    .logo svg,
+    .brand-logo {
+      height: 34px;
+      width: auto;
+      flex-shrink: 0;
+      transition: filter 0.3s ease;
+      filter: brightness(0) invert(1);
+      /* Dynamic white-out on transparent header */
+    }
+
+    .navbar.scrolled .brand-logo {
+      filter: none;
+      /* Original navy blue color on scrolled header */
     }
 
     .nav-links {
@@ -384,18 +454,17 @@
       content: '';
       position: absolute;
       bottom: -2px;
-      left: 50%;
-      transform: translateX(-50%) scale(0);
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
       background: var(--accent);
-      transition: transform 0.2s ease;
+      transform: scaleX(0);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
       transform-origin: center;
     }
 
     .nav-links a:not(.nav-cta):hover::after {
-      transform: translateX(-50%) scale(1);
+      transform: scaleX(1);
     }
 
     .navbar.scrolled .nav-links a:not(.nav-cta) {
@@ -836,7 +905,7 @@
     /* ===== WHY TRUST HELIONEST ===== */
     .trust-section {
       padding: 96px 0;
-      background: #F0F4F8;
+      background: var(--white-warm);
     }
 
     @media (min-width: 1024px) {
@@ -2110,10 +2179,15 @@
     }
 
     @media (min-width: 768px) {
-
-      .products-grid,
       .services-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 840px;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -2193,6 +2267,554 @@
       color: var(--accent);
       font-weight: bold;
     }
+
+    /* ===== NEW PREMIUM VISUAL UPGRADES ===== */
+
+    /* Headings & typography line-reveals */
+    .reveal-mask {
+      display: block;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .reveal-line {
+      display: block;
+      transform: translateY(105%);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-line.revealed {
+      transform: translateY(0);
+    }
+
+    /* Infinite Marquee */
+    .marquee-strip {
+      height: 48px;
+      background: #0A1628;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      white-space: nowrap;
+      z-index: 10;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .marquee-content {
+      display: inline-flex;
+      animation: marqueeScroll 18s linear infinite;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .marquee-strip:hover .marquee-content {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-right: 2rem;
+    }
+
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Hero overrides & textures */
+    .hero {
+      position: relative;
+      background-color: #0A1628;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.7) 60%, rgba(10, 22, 40, 0.3) 100%),
+        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2500&q=80');
+      background-size: 26px 26px, cover, cover;
+    }
+
+    .hero-glow-blob {
+      position: absolute;
+      top: 10%;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .hero-form-container {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15) !important;
+      border-radius: 20px !important;
+    }
+
+    /* Inputs inside hero and other dark blocks */
+    .hero-input,
+    .lead-form .form-input {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+      color: #FFFFFF !important;
+      border-radius: 10px !important;
+      font-size: 16px !important;
+      padding: 12px 16px !important;
+      width: 100%;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .hero-input::placeholder,
+    .lead-form .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    .hero-input:focus,
+    .lead-form .form-input:focus {
+      border-color: #60A5FA !important;
+      background: rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.15) !important;
+    }
+
+    .hero-form-container select.hero-input option {
+      background: #0A1628 !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Products Section & 3D Tilt */
+    .product-card {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E7EB !important;
+      border-radius: 20px !important;
+      padding: 40px 36px !important;
+      box-shadow: none !important;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease, box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 64px rgba(29, 78, 216, 0.1) !important;
+      border-color: #BFDBFE !important;
+    }
+
+    .product-card .card-icon svg {
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .product-card:hover .card-icon svg {
+      transform: scale(1.04);
+    }
+
+    /* clip-path image reveal */
+    .clip-reveal-img {
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .clip-reveal-img.revealed {
+      clip-path: inset(0 0% 0 0);
+    }
+
+    /* Services & Spotlight Hover Glow */
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      background: #F5F4F0 !important;
+      border: 1px solid #E5E7EB !important;
+      border-radius: 20px !important;
+      padding: 40px 36px !important;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease !important;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(29, 78, 216, 0.08), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .service-card:hover {
+      background: #FFFFFF !important;
+      transform: translateY(-8px) !important;
+      box-shadow: 0 24px 64px rgba(29, 78, 216, 0.1) !important;
+      border-color: #BFDBFE !important;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-card .card-icon {
+      width: 56px !important;
+      height: 56px !important;
+      background: #EFF6FF !important;
+      border: 1.5px solid #BFDBFE !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-bottom: 24px !important;
+      color: #1D4ED8 !important;
+    }
+
+    .service-card .card-icon svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
+
+    /* Process steps timeline enhancements */
+    .process-section {
+      background: #FAFAF8 !important;
+      position: relative;
+    }
+
+    .process-steps {
+      position: relative;
+    }
+
+    /* We hide the default pseudo line connector and replace with custom JS self-drawing bar */
+    .process-steps::before {
+      display: none !important;
+    }
+
+    .process-connector {
+      position: absolute;
+      left: 24px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background-image: linear-gradient(to bottom, #1D4ED8 50%, rgba(29, 78, 216, 0.15) 50%);
+      background-size: 2px 12px;
+      height: 0%;
+      transition: height 2s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 1;
+    }
+
+    @media (min-width: 640px) {
+      .process-connector {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .process-connector.revealed {
+      height: calc(100% - 40px);
+    }
+
+    .process-step {
+      position: relative;
+    }
+
+    .process-step .step-number {
+      display: none !important;
+      /* Hide old circular number badge as we use giant watermarks */
+    }
+
+    .step-watermark {
+      font-family: 'Syne', sans-serif;
+      font-size: 96px;
+      font-weight: 800;
+      color: #0A1628;
+      opacity: 0.04;
+      line-height: 1;
+      position: absolute;
+      top: -16px;
+      left: -8px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Calculator upgrades */
+    .calc-section {
+      position: relative;
+      background-color: #0A1628 !important;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px) !important;
+      background-size: 26px 26px !important;
+    }
+
+    .calc-card {
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      border-radius: 20px !important;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .calc-card h2 {
+      color: #FFFFFF !important;
+    }
+
+    .calc-card .form-label {
+      color: #CBD5E1 !important;
+    }
+
+    .calc-card .form-input {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+      color: #FFFFFF !important;
+      border-radius: 10px !important;
+    }
+
+    .calc-card .form-input:focus {
+      border-color: #60A5FA !important;
+      background: rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .calc-card .pill-group .pill-btn {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      color: #CBD5E1 !important;
+      border-radius: 8px !important;
+    }
+
+    .calc-card .pill-group .pill-btn.active {
+      background: #1D4ED8 !important;
+      border-color: #1D4ED8 !important;
+      color: #FFFFFF !important;
+    }
+
+    .calc-result {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease !important;
+    }
+
+    .calc-result.active {
+      max-height: 500px;
+    }
+
+    /* Testimonials Edge fade & Quote mark watermark */
+    .testimonials-section {
+      background: #FAFAF8 !important;
+    }
+
+    .testimonials-scroll {
+      position: relative;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .testimonial-card {
+      position: relative !important;
+      overflow: hidden;
+      border: none !important;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06) !important;
+      background: #FFFFFF !important;
+      border-radius: 16px !important;
+      min-width: 300px;
+      max-width: 88vw;
+      padding: 36px !important;
+      z-index: 1;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-family: Georgia, serif;
+      font-size: 160px;
+      color: #1D4ED8;
+      opacity: 0.07;
+      position: absolute;
+      top: -24px;
+      left: 16px;
+      line-height: 1;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .testimonial-card>* {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Hide old css absolute quote mark text */
+    .testimonial-card .quote-mark {
+      display: none !important;
+    }
+
+    /* FAQ accordion custom modifications */
+    .faq-section {
+      background: #F5F4F0 !important;
+    }
+
+    .faq-item {
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      margin-bottom: 0 !important;
+      padding: 22px 0 !important;
+      border-bottom: 1px solid #E5E7EB !important;
+      box-shadow: none !important;
+    }
+
+    .faq-question {
+      font-size: 17px !important;
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 600 !important;
+      color: #0A1628 !important;
+      padding: 0 !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: transparent;
+      text-align: left;
+    }
+
+    .faq-question .faq-icon {
+      width: 24px !important;
+      height: 24px !important;
+      background: transparent !important;
+      border: 1.5px solid #E5E7EB !important;
+      border-radius: 50% !important;
+      flex-shrink: 0;
+      position: relative;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
+
+    .faq-question .faq-icon::before,
+    .faq-question .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: #0A1628;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.25s ease;
+    }
+
+    .faq-question .faq-icon::before {
+      width: 10px;
+      height: 1.5px;
+    }
+
+    .faq-question .faq-icon::after {
+      width: 1.5px;
+      height: 10px;
+    }
+
+    .faq-item.active .faq-question .faq-icon {
+      transform: rotate(45deg) !important;
+      border-color: #1D4ED8 !important;
+    }
+
+    .faq-item.active .faq-question .faq-icon::before,
+    .faq-item.active .faq-question .faq-icon::after {
+      background: #1D4ED8;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
+
+    .faq-answer p {
+      font-size: 15px !important;
+      line-height: 1.75 !important;
+      color: #6B7280 !important;
+      padding: 12px 0 0 0 !important;
+    }
+
+    /* Footer styling */
+    .footer {
+      background: #060F1E !important;
+      position: relative;
+      /* Grid lines backdrop overlay texture */
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      color: rgba(255, 255, 255, 0.4) !important;
+      margin-bottom: 20px !important;
+    }
+
+    .footer-col ul li a {
+      font-size: 14px !important;
+      color: rgba(255, 255, 255, 0.6) !important;
+      line-height: 2.2 !important;
+      transition: color 0.15s ease !important;
+    }
+
+    .footer-col ul li a:hover {
+      color: #FFFFFF !important;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+
+    /* Mobile sticky CTA bar update */
+    #mobileStickyForm {
+      border-radius: 20px 20px 0 0 !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      background: rgba(10, 22, 40, 0.95) !important;
+    }
+
+    #mobileStickyForm .close-btn {
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Disable/simplify animations under prefers-reduced-motion or mobile */
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal-line,
+      .clip-reveal-img,
+      .process-connector,
+      .calc-result,
+      .faq-answer {
+        transition: none !important;
+        transform: none !important;
+        clip-path: none !important;
+      }
+    }
+
+    /* Mobile tilts enabled */
   </style>
 </head>
 
@@ -2205,14 +2827,7 @@
   <nav class="navbar" id="navbar">
     <div class="container navbar-inner">
       <a href="#" class="logo" style="display: flex; align-items: center; gap: 10px;">
-        <!-- Monogram KA logo -->
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; flex-shrink: 0;">
-          <rect x="18" y="15" width="10" height="70" fill="var(--navy)" rx="2" />
-          <path d="M28 50 L75 12" stroke="var(--navy)" stroke-width="10" stroke-linecap="round" />
-          <path d="M35 44 L78 85" stroke="var(--navy)" stroke-width="10" stroke-linecap="round" />
-          <path d="M48 30 L85 85" stroke="var(--navy)" stroke-width="10" stroke-linecap="round" />
-          <path d="M55 58 C72 58 84 70 84 82" stroke="var(--accent)" stroke-width="9" stroke-linecap="round" />
-        </svg>
+        <img src="./KA-logo.png" alt="Kotieshwara Associates Logo" class="brand-logo" />
         <span style="display: flex; flex-direction: column; line-height: 0.95;">
           <span style="font-size: 19px; font-weight: 800; letter-spacing: -0.01em;">Kotieshwara Associates</span>
           <span
@@ -2248,11 +2863,19 @@
 
   <!-- ===== HERO SECTION ===== -->
   <section class="hero" id="hero">
+    <div class="hero-glow-blob"></div>
     <div class="container hero-inner">
       <div class="hero-content">
-        <h1 class="hero-headline" style="text-shadow: 0 4px 20px rgba(0,0,0,0.4);">Your Trusted Solar Partner.</h1>
-        <p class="hero-sub" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #E2E8F0;">Kotieshwara Associates helps
-          you cut electricity bills by up to 90% with premium, premium solar solutions. Get an expert design
+        <h1 class="hero-headline" style="text-shadow: 0 4px 20px rgba(0,0,0,0.4); display: flex; flex-wrap: wrap;">
+          <span class="animated-word-clip"><span>Your</span></span>
+          <span class="animated-word-clip"><span>Trusted</span></span>
+          <span class="animated-word-clip"><span>Solar</span></span>
+          <span class="animated-word-clip"><span>Partner.</span></span>
+        </h1>
+        <p class="hero-sub hero-sub-animate" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #E2E8F0;">
+          Kotieshwara Associates
+          helps
+          you cut electricity bills by up to 90% with premium solar solutions. Get an expert design
           and all subsidies handled end-to-end.</p>
 
         <div class="trust-badge"
@@ -2332,15 +2955,30 @@
     </div>
   </section>
 
+  <!-- ===== INFINITE MARQUEE STRIP ===== -->
+  <div class="marquee-strip">
+    <div class="marquee-content">
+      <span class="marquee-item">Supply & Distribution ◈ Solar Installation & Commissioning ◈ Lifetime Support &
+        Maintenance ◈ Supply & Distribution ◈ Solar Installation & Commissioning ◈ Lifetime Support & Maintenance
+        ◈</span>
+      <span class="marquee-item">Supply & Distribution ◈ Solar Installation & Commissioning ◈ Lifetime Support &
+        Maintenance ◈ Supply & Distribution ◈ Solar Installation & Commissioning ◈ Lifetime Support & Maintenance
+        ◈</span>
+    </div>
+  </div>
+
+  <!-- Section Transition: Dark to Light -->
+  <div style="height: 48px; background: linear-gradient(180deg, #0A1628, #FAFAF8);"></div>
+
   <!-- ===== PRODUCTS SECTION ===== -->
   <section class="segment-section" id="products" style="background: var(--bg);">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>Our Offerings</span></div>
+      <div class="section-eyebrow" data-aos="fade-up"><span>— OUR PRODUCTS</span></div>
       <h2 class="section-heading" data-aos="fade-up">Our Solar Products</h2>
 
       <p style="text-align: center; max-width: 700px; margin: -20px auto 40px; color: var(--muted); font-size: 16px;"
         data-aos="fade-up">
-        High-efficiency, MNRE-approved solar products engineered for maximum durability, performance, and financial
+        High-efficiency solar products engineered for maximum durability, performance, and financial
         returns.
       </p>
 
@@ -2385,34 +3023,14 @@
             <li>High-capacity LiFePO4 battery backup for up to 3 days</li>
           </ul>
         </div>
-
-        <!-- Product 3 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z" />
-              <path d="M2 15h20" stroke-dasharray="3,3" />
-            </svg>
-          </div>
-          <h3>Solar Water Pumps</h3>
-          <p>High-reliability solar pumping sets built to operate under tough weather conditions. Power your water
-            distribution networks directly from solar energy without running grid lines.</p>
-          <ul class="specs-list">
-            <li>Surface and deep submersible pump variants</li>
-            <li>Wide power options from 1HP up to 10HP capacity</li>
-            <li>Ideal for farms, micro-irrigation, and community projects</li>
-            <li>Both high-efficiency DC and robust AC motor options</li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== SERVICES SECTION ===== -->
-  <section class="segment-section" id="services" style="background: var(--white-off);">
+  <section class="segment-section" id="services" style="background: var(--gray-warm);">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>Expert Services</span></div>
+      <div class="section-eyebrow" data-aos="fade-up"><span>— OUR SERVICES</span></div>
       <h2 class="section-heading" data-aos="fade-up">Our Dedicated Services</h2>
 
       <p style="text-align: center; max-width: 700px; margin: -20px auto 40px; color: var(--muted); font-size: 16px;"
@@ -2492,7 +3110,7 @@
   <!-- ===== WHY TRUST HELIONEST ===== -->
   <section class="trust-section">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>Why Kotieshwara Associates</span></div>
+      <div class="section-eyebrow" data-aos="fade-up"><span>— WHY CHOOSE US</span></div>
       <h2 class="section-heading" data-aos="fade-up">Why Trust Kotieshwara Associates</h2>
       <div class="trust-grid">
         <!-- Pillar 1 -->
@@ -2541,13 +3159,15 @@
     </div>
   </section>
 
-
+  <!-- Section Transition: Light to Dark -->
+  <div style="height: 48px; background: linear-gradient(180deg, #FAFAF8, #0A1628);"></div>
 
   <!-- ===== SAVINGS CALCULATOR ===== -->
   <section class="calc-section" id="calculator">
     <div class="container">
       <div class="calc-card" data-aos="fade-up">
-        <h2>Calculate Your Solar Savings</h2>
+        <div class="section-eyebrow" data-aos="fade-up"><span>— SAVINGS ESTIMATOR</span></div>
+        <h2 style="text-align: center; margin-top: 10px; margin-bottom: 36px;">Calculate Your Solar Savings</h2>
 
         <div class="form-group">
           <label class="form-label">Enter your PIN Code</label>
@@ -2604,14 +3224,19 @@
     </div>
   </section>
 
+  <!-- Section Transition: Dark to Light -->
+  <div style="height: 48px; background: linear-gradient(180deg, #0A1628, #FAFAF8);"></div>
+
   <!-- ===== 4-STEP PROCESS ===== -->
   <section class="process-section">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>Process</span></div>
+      <div class="section-eyebrow" data-aos="fade-up"><span>— HOW IT WORKS</span></div>
       <h2 class="section-heading" data-aos="fade-up" style="margin-bottom:56px;">How It Works</h2>
       <div class="process-steps">
+        <div class="process-connector"></div>
         <!-- Step 1 -->
         <div class="process-step" data-aos="fade-right" data-aos-delay="0">
+          <div class="step-watermark">1</div>
           <div class="step-number">1</div>
           <div class="process-step-content">
             <h3>Free Rooftop Survey</h3>
@@ -2619,13 +3244,14 @@
               electrical compatibility — all at no cost.</p>
           </div>
           <div class="process-step-visual">
-            <img src="./process_survey.png" alt="Rooftop Survey" loading="lazy"
+            <img src="./process_survey.png" alt="Rooftop Survey" loading="lazy" class="clip-reveal-img"
               style="border-radius: 12px; object-fit: cover; width: 100%; height: 100%; border: 1.5px solid var(--card-border);" />
           </div>
         </div>
 
         <!-- Step 2 -->
         <div class="process-step" data-aos="fade-left" data-aos-delay="150">
+          <div class="step-watermark">2</div>
           <div class="step-number">2</div>
           <div class="process-step-content">
             <h3>Custom 3D Solar Design</h3>
@@ -2633,13 +3259,14 @@
               photorealistic preview of your rooftop solar setup.</p>
           </div>
           <div class="process-step-visual">
-            <img src="./process_design.png" alt="3D Design" loading="lazy"
+            <img src="./process_design.png" alt="3D Design" loading="lazy" class="clip-reveal-img"
               style="border-radius: 12px; object-fit: cover; width: 100%; height: 100%; border: 1.5px solid var(--card-border);" />
           </div>
         </div>
 
         <!-- Step 3 -->
         <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+          <div class="step-watermark">3</div>
           <div class="step-number">3</div>
           <div class="process-step-content">
             <h3>Installation + Subsidy Filing</h3>
@@ -2647,13 +3274,14 @@
               approvals. You just sit back.</p>
           </div>
           <div class="process-step-visual">
-            <img src="./process_installation.png" alt="Installation" loading="lazy"
+            <img src="./process_installation.png" alt="Installation" loading="lazy" class="clip-reveal-img"
               style="border-radius: 12px; object-fit: cover; width: 100%; height: 100%; border: 1.5px solid var(--card-border);" />
           </div>
         </div>
 
         <!-- Step 4 -->
         <div class="process-step" data-aos="fade-left" data-aos-delay="450">
+          <div class="step-watermark">4</div>
           <div class="step-number">4</div>
           <div class="process-step-content">
             <h3>Solar On. You Save.</h3>
@@ -2661,7 +3289,7 @@
               Zero worries.</p>
           </div>
           <div class="process-step-visual">
-            <img src="./process_savings.png" alt="Savings" loading="lazy"
+            <img src="./process_savings.png" alt="Savings" loading="lazy" class="clip-reveal-img"
               style="border-radius: 12px; object-fit: cover; width: 100%; height: 100%; border: 1.5px solid var(--card-border);" />
           </div>
         </div>
@@ -2673,10 +3301,12 @@
 
 
   <!-- ===== TESTIMONIALS ===== -->
-  <section class="testimonials-section" style="background: var(--white-off);">
+  <section class="testimonials-section" style="background: var(--white-warm);">
     <div class="container">
-      <div class="testimonials-header" data-aos="fade-up">
-        <h2>What Our Customers Say</h2>
+      <div class="testimonials-header" data-aos="fade-up"
+        style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 48px;">
+        <div class="section-eyebrow" data-aos="fade-up"><span>— WHAT CLIENTS SAY</span></div>
+        <h2 style="margin-top: 10px;">What Our Customers Say</h2>
         <div class="google-rating">
           <span class="rating-number">4.9</span>
           <div class="rating-info">
@@ -2736,9 +3366,11 @@
   </section>
 
   <!-- ===== FAQ ACCORDION ===== -->
-  <section class="faq-section" id="faq" style="background: var(--bg);">
+  <section class="faq-section" id="faq" style="background: var(--gray-warm);">
     <div class="container faq-container">
-      <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+      <div class="section-eyebrow" data-aos="fade-up"><span>— QUESTIONS & ANSWERS</span></div>
+      <h2 data-aos="fade-up" style="margin-top: 10px; margin-bottom: 36px; text-align: center;">Frequently Asked
+        Questions</h2>
 
       <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
         <button class="faq-question">
@@ -2802,11 +3434,15 @@
     </div>
   </section>
 
+  <!-- Section Transition: Light to Dark -->
+  <div style="height: 48px; background: linear-gradient(180deg, #F5F4F0, #0A1628);"></div>
+
   <!-- ===== LEAD CAPTURE FORM ===== -->
   <section class="lead-section" id="lead-form" style="background: #0A1628;">
     <div class="container">
       <div class="lead-inner" data-aos="fade-up">
-        <h2>Talk to a Solar Expert</h2>
+        <div class="section-eyebrow" data-aos="fade-up"><span>— CONSULTATION</span></div>
+        <h2 style="text-align: center; margin-top: 10px; margin-bottom: 30px;">Talk to a Solar Expert</h2>
         <p>Get facts, specifications, and layout advice. No pushy sales calls.</p>
 
         <form class="lead-form" id="leadForm" novalidate>
@@ -2876,13 +3512,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="logo" style="display: flex; align-items: center; gap: 8px;">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px; --navy: #FFFFFF;">
-              <rect x="18" y="15" width="10" height="70" fill="var(--navy)" rx="2" />
-              <path d="M28 50 L75 12" stroke="var(--navy)" stroke-width="10" stroke-linecap="round" />
-              <path d="M35 44 L78 85" stroke="var(--navy)" stroke-width="10" stroke-linecap="round" />
-              <path d="M48 30 L85 85" stroke="var(--navy)" stroke-width="10" stroke-linecap="round" />
-              <path d="M55 58 C72 58 84 70 84 82" stroke="var(--accent)" stroke-width="9" stroke-linecap="round" />
-            </svg>
+            <img src="./KA-logo.png" alt="Kotieshwara Associates Logo" class="brand-logo"
+              style="filter: brightness(0) invert(1); height: 28px;" />
             <span style="display: flex; flex-direction: column; line-height: 0.95;">
               <span style="font-size: 14px; font-weight: 800; color: #FFFFFF;">Kotieshwara Associates</span>
               <span
@@ -2989,13 +3620,83 @@
         offset: window.innerWidth < 768 ? 10 : 60,
         disable: false
       });
+
+      // ===== SERVICE CARD SPOTLIGHT GLOW =====
+      document.querySelectorAll('.service-card').forEach(card => {
+        function handleMove(clientX, clientY) {
+          const rect = card.getBoundingClientRect();
+          const x = ((clientX - rect.left) / rect.width) * 100;
+          const y = ((clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mx', `${x}%`);
+          card.style.setProperty('--my', `${y}%`);
+        }
+        card.addEventListener('mousemove', function (e) {
+          handleMove(e.clientX, e.clientY);
+        });
+        card.addEventListener('touchmove', function (e) {
+          handleMove(e.touches[0].clientX, e.touches[0].clientY);
+        });
+      });
+
+      // ===== PRODUCT CARD 3D TILT =====
+      document.querySelectorAll('.product-card').forEach(card => {
+        function handleMove(clientX, clientY) {
+          const rect = card.getBoundingClientRect();
+          const x = clientX - rect.left - rect.width / 2;
+          const y = clientY - rect.top - rect.height / 2;
+          // Max 8 degrees tilt
+          const rotateX = -(y / (rect.height / 2)) * 8;
+          const rotateY = (x / (rect.width / 2)) * 8;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        }
+        card.addEventListener('mousemove', function (e) {
+          handleMove(e.clientX, e.clientY);
+        });
+        card.addEventListener('touchmove', function (e) {
+          if (e.cancelable) e.preventDefault(); // prevent scroll pull if dragging inside card
+          handleMove(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: false });
+        card.addEventListener('mouseleave', function () {
+          card.style.transform = '';
+        });
+        card.addEventListener('touchend', function () {
+          card.style.transform = '';
+        });
+      });
+
+      // ===== TIMELINE PROCESS LINE DRAWING =====
+      const connector = document.querySelector('.process-connector');
+      const stepsContainer = document.querySelector('.process-steps');
+      if (connector && stepsContainer) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              connector.classList.add('revealed');
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(stepsContainer);
+      }
+
+      // ===== WIPE IMAGE REVEALS =====
+      const imgObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.clip-reveal-img').forEach(img => {
+        imgObserver.observe(img);
+      });
     });
 
     // ===== SCROLL PROGRESS BAR =====
     const scrollProgress = document.getElementById('scrollProgress');
 
-    // ===== NAVBAR SCROLL EFFECT =====
+    // ===== NAVBAR SCROLL EFFECT & PARALLAX =====
     const navbar = document.getElementById('navbar');
+    const hero = document.getElementById('hero');
     let lastScroll = 0;
 
     window.addEventListener('scroll', function () {
@@ -3013,6 +3714,12 @@
       } else {
         navbar.classList.remove('scrolled');
       }
+
+      // Parallax effect on Hero background
+      if (hero) {
+        hero.style.backgroundPositionY = `${currentScroll * 0.45}px`;
+      }
+
       lastScroll = currentScroll;
     }, { passive: true });
 
