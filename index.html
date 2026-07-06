@@ -1320,6 +1320,35 @@
       background: #152238;
     }
 
+    .calc-contact-success {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 10px;
+      margin-top: 16px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .calc-contact-success.show {
+      display: flex;
+    }
+
+    .calc-contact-success svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .calc-contact-success p {
+      font-size: 14px;
+      font-weight: 600;
+      color: #22C55E;
+      margin: 0;
+    }
+
     /* ===== CALC RESULT DASHBOARD ===== */
     .calc-result-grid {
       display: grid;
@@ -4609,7 +4638,15 @@
             <p class="calc-subsidy-note">Subsidy available under <strong>PM Surya Ghar: Muft Bijli Yojana</strong>.
               Kotieshwara Associates handles the entire application for you.</p>
 
-            <a href="#lead-form" class="result-cta">Get Your Free Quote →</a>
+            <button type="button" class="result-cta" id="calcQuoteBtn">Get Your Free Quote →</button>
+            <div class="calc-contact-success" id="calcContactSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <p>Our experts will contact you soon</p>
+            </div>
           </div>
         </div>
       </div>
@@ -5301,8 +5338,26 @@
       document.getElementById('resultPayback').textContent = paybackYears + ' yrs';
       document.getElementById('resultLifetime').textContent = formatINR(lifetimeSavings);
 
+      // Reset contact button state
+      const quoteBtn = document.getElementById('calcQuoteBtn');
+      const contactSuccess = document.getElementById('calcContactSuccess');
+      if (quoteBtn && contactSuccess) {
+        quoteBtn.style.display = 'block';
+        contactSuccess.classList.remove('show');
+      }
+
       calcResult.classList.add('show');
     });
+
+    // Inline contact success for calculator
+    const calcQuoteBtn = document.getElementById('calcQuoteBtn');
+    const calcContactSuccess = document.getElementById('calcContactSuccess');
+    if (calcQuoteBtn && calcContactSuccess) {
+      calcQuoteBtn.addEventListener('click', function () {
+        calcQuoteBtn.style.display = 'none';
+        calcContactSuccess.classList.add('show');
+      });
+    }
 
     // ===== HERO QUOTE FORM =====
     const heroQuoteForm = document.getElementById('heroQuoteForm');
