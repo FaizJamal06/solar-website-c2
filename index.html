@@ -1238,7 +1238,7 @@
     }
 
     .calc-result.show {
-      max-height: 500px;
+      max-height: 1200px;
       opacity: 1;
       margin-top: 28px;
     }
@@ -1318,6 +1318,108 @@
 
     .result-cta:hover {
       background: #152238;
+    }
+
+    /* ===== CALC RESULT DASHBOARD ===== */
+    .calc-result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 639px) {
+      .calc-result-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    .calc-stat-card {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .calc-stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .calc-stat-highlight {
+      background: rgba(29, 78, 216, 0.15);
+      border-color: rgba(29, 78, 216, 0.3);
+    }
+
+    .calc-stat-subsidy {
+      background: rgba(34, 197, 94, 0.08);
+      border-color: rgba(34, 197, 94, 0.2);
+    }
+
+    .calc-stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #94A3B8;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .calc-stat-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.15;
+    }
+
+    @media (max-width: 639px) {
+      .calc-stat-value {
+        font-size: 20px;
+      }
+    }
+
+    .calc-stat-green {
+      color: #22C55E;
+    }
+
+    .calc-subsidy-note {
+      font-size: 13px;
+      color: #94A3B8;
+      line-height: 1.65;
+      margin-bottom: 16px;
+      padding: 14px 16px;
+      background: rgba(34, 197, 94, 0.06);
+      border: 1px solid rgba(34, 197, 94, 0.15);
+      border-radius: 10px;
+    }
+
+    .calc-subsidy-note strong {
+      color: #22C55E;
+    }
+
+    .calc-disclaimer {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      max-width: 640px;
+      margin: 20px auto 0;
+      line-height: 1.65;
+      opacity: 0.7;
+    }
+
+    .calc-card select.form-input {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%2394A3B8'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
     }
 
     /* ===== 4-STEP PROCESS ===== */
@@ -2626,7 +2728,7 @@
     }
 
     .calc-result.active {
-      max-height: 500px;
+      max-height: 1200px;
     }
 
     /* Testimonials Edge fade & Quote mark watermark */
@@ -4437,57 +4539,84 @@
         <h2 style="text-align: center; margin-top: 10px; margin-bottom: 36px;">Calculate Your Solar Savings</h2>
 
         <div class="form-group">
-          <label class="form-label">Enter your PIN Code</label>
-          <input type="text" class="form-input" id="calcPincode" placeholder="e.g. 560001" maxlength="6"
+          <label class="form-label">Monthly Electricity Bill (₹)</label>
+          <input type="number" class="form-input" id="calcBill" placeholder="e.g. 3000" min="100" max="500000"
             inputmode="numeric" />
-          <p class="error-text" id="pincodeError">Enter a valid 6-digit pincode</p>
+          <p class="error-text" id="billError">Enter a valid bill amount between ₹100 and ₹5,00,000</p>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Monthly Electricity Bill</label>
-          <div class="pill-group" id="billPills">
-            <button type="button" class="pill-btn" data-value="1000">&#8377;500 – 1,500</button>
-            <button type="button" class="pill-btn" data-value="2250">&#8377;1,500 – 3,000</button>
-            <button type="button" class="pill-btn" data-value="4500">&#8377;3,000 – 6,000</button>
-            <button type="button" class="pill-btn" data-value="8000">&#8377;6,000+</button>
+          <label class="form-label">Property Type</label>
+          <div class="pill-group" id="propertyPills" style="grid-template-columns: 1fr 1fr;">
+            <button type="button" class="pill-btn active" data-value="residential">Residential</button>
+            <button type="button" class="pill-btn" data-value="commercial">Commercial</button>
           </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">State</label>
+          <select class="form-input" id="calcState">
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
 
         <button type="button" class="calc-submit" id="calcSubmit">Calculate Savings</button>
 
         <div class="calc-result" id="calcResult">
           <div class="calc-result-inner">
-            <div class="result-amount" id="resultAmount">&#8377;0</div>
-            <div class="result-label">Estimated annual savings</div>
-            <div class="result-detail">
-              <span>Payback period</span>
-              <span>3 – 4 years</span>
+            <div class="calc-result-grid">
+              <div class="calc-stat-card calc-stat-highlight">
+                <span class="calc-stat-label">Recommended System</span>
+                <span class="calc-stat-value" id="resultSize">— kW</span>
+              </div>
+              <div class="calc-stat-card">
+                <span class="calc-stat-label">Monthly Savings</span>
+                <span class="calc-stat-value calc-stat-green" id="resultMonthlySavings">₹0</span>
+              </div>
+              <div class="calc-stat-card">
+                <span class="calc-stat-label">New Monthly Bill</span>
+                <span class="calc-stat-value" id="resultNewBill">₹0</span>
+              </div>
+              <div class="calc-stat-card">
+                <span class="calc-stat-label">System Cost</span>
+                <span class="calc-stat-value" id="resultCost">₹0</span>
+              </div>
+              <div class="calc-stat-card calc-stat-subsidy">
+                <span class="calc-stat-label">Govt Subsidy (PM Surya Ghar)</span>
+                <span class="calc-stat-value calc-stat-green" id="resultSubsidy">₹0</span>
+              </div>
+              <div class="calc-stat-card">
+                <span class="calc-stat-label">Your Net Investment</span>
+                <span class="calc-stat-value" id="resultNetCost">₹0</span>
+              </div>
+              <div class="calc-stat-card">
+                <span class="calc-stat-label">Payback Period</span>
+                <span class="calc-stat-value" id="resultPayback">— yrs</span>
+              </div>
+              <div class="calc-stat-card calc-stat-highlight">
+                <span class="calc-stat-label">25-Year Savings</span>
+                <span class="calc-stat-value calc-stat-green" id="resultLifetime">₹0</span>
+              </div>
             </div>
-            <div class="result-detail">
-              <span>System size (estimated)</span>
-              <span id="resultSize">3 – 5 kW</span>
-            </div>
-            <div class="result-detail">
-              <span>Lifetime savings (25 yrs)</span>
-              <span id="resultLifetime">&#8377;0</span>
-            </div>
-            <a href="#lead-form" class="result-cta">Book Free Visit</a>
+
+            <p class="calc-subsidy-note">Subsidy available under <strong>PM Surya Ghar: Muft Bijli Yojana</strong>.
+              Kotieshwara Associates handles the entire application for you.</p>
+
+            <a href="#lead-form" class="result-cta">Get Your Free Quote →</a>
           </div>
         </div>
-
-        <div class="calc-result-soon" id="calcResultSoon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="8" x2="12" y2="12" />
-            <line x1="12" y1="16" x2="12.01" y2="16" />
-          </svg>
-          <h3 style="font-family:'Syne',sans-serif;font-size:18px;color:var(--navy);margin-bottom:8px;">We haven't
-            reached your area yet</h3>
-          <p style="font-size:14px;color:var(--muted);">But we're coming soon! Leave your details and we'll notify you.
-          </p>
-        </div>
       </div>
+
+      <p class="calc-disclaimer">Estimates based on average Indian solar irradiation (4 peak sun hours/day) and standard
+        tariff of ₹8/unit. Actual savings depend on your location, roof orientation, and state DISCOM tariffs. Contact
+        us for a precise site assessment.</p>
     </div>
   </section>
 
@@ -5072,89 +5201,105 @@
     statsObserver.observe(statsGrid);
 
     // ===== SAVINGS CALCULATOR =====
-    const calcPincode = document.getElementById('calcPincode');
-    const pincodeError = document.getElementById('pincodeError');
-    const billPills = document.querySelectorAll('#billPills .pill-btn');
+    const calcBill = document.getElementById('calcBill');
+    const billError = document.getElementById('billError');
+    const propertyPills = document.querySelectorAll('#propertyPills .pill-btn');
     const calcSubmit = document.getElementById('calcSubmit');
     const calcResult = document.getElementById('calcResult');
-    const calcResultSoon = document.getElementById('calcResultSoon');
-    const resultAmount = document.getElementById('resultAmount');
-    const resultSize = document.getElementById('resultSize');
-    const resultLifetime = document.getElementById('resultLifetime');
 
-    let selectedBillValue = null;
+    let selectedPropertyType = 'residential';
 
-    calcPincode.addEventListener('blur', function () {
-      const val = calcPincode.value.trim();
-      if (val.length !== 6 || !/^\d{6}$/.test(val)) {
-        calcPincode.classList.add('error');
-        pincodeError.classList.add('show');
-      } else {
-        calcPincode.classList.remove('error');
-        pincodeError.classList.remove('show');
-      }
-    });
-
-    calcPincode.addEventListener('input', function () {
-      calcPincode.value = calcPincode.value.replace(/\D/g, '');
-      if (calcPincode.classList.contains('error')) {
-        calcPincode.classList.remove('error');
-        pincodeError.classList.remove('show');
-      }
-    });
-
-    billPills.forEach(function (pill) {
+    // Property type toggle
+    propertyPills.forEach(function (pill) {
       pill.addEventListener('click', function () {
-        billPills.forEach(function (p) { p.classList.remove('active'); });
+        propertyPills.forEach(function (p) { p.classList.remove('active'); });
         pill.classList.add('active');
-        selectedBillValue = parseInt(pill.dataset.value);
+        selectedPropertyType = pill.dataset.value;
       });
     });
 
+    // Clear error on input
+    calcBill.addEventListener('input', function () {
+      if (calcBill.classList.contains('error')) {
+        calcBill.classList.remove('error');
+        billError.classList.remove('show');
+      }
+    });
+
+    function formatINR(num) {
+      return '\u20B9' + Math.round(num).toLocaleString('en-IN');
+    }
+
     calcSubmit.addEventListener('click', function () {
-      const pinVal = calcPincode.value.trim();
-      const isValidPin = /^\d{6}$/.test(pinVal);
+      const billVal = parseFloat(calcBill.value);
 
-      if (!isValidPin) {
-        calcPincode.classList.add('error');
-        pincodeError.classList.add('show');
+      // Validation
+      if (!billVal || isNaN(billVal) || billVal < 100 || billVal > 500000) {
+        calcBill.classList.add('error');
+        billError.classList.add('show');
         calcResult.classList.remove('show');
-        calcResultSoon.classList.remove('show');
         return;
       }
 
-      if (!selectedBillValue) {
-        // Highlight pills to show selection needed
-        document.getElementById('billPills').style.animation = 'shake 0.4s ease';
-        setTimeout(function () {
-          document.getElementById('billPills').style.animation = '';
-        }, 400);
-        return;
+      calcBill.classList.remove('error');
+      billError.classList.remove('show');
+
+      const isResidential = selectedPropertyType === 'residential';
+      const TARIFF = 8;
+      const UNITS_PER_KW = 120;
+      const COST_PER_KW = 55000;
+      const SELF_CONSUMPTION = 0.80;
+
+      // STEP 1: Monthly units consumed
+      const monthlyUnits = billVal / TARIFF;
+
+      // STEP 2: Required system size (round up to nearest 0.5 kW)
+      let rawSize = monthlyUnits / UNITS_PER_KW;
+      let systemSize = Math.ceil(rawSize * 2) / 2;
+      const cap = isResidential ? 10 : 100;
+      systemSize = Math.min(systemSize, cap);
+      if (systemSize < 0.5) systemSize = 0.5;
+
+      // STEP 3: Monthly solar generation & units saved
+      const monthlyGeneration = systemSize * UNITS_PER_KW;
+      const monthlyUnitsSaved = monthlyUnits * SELF_CONSUMPTION;
+
+      // STEP 4: Monthly savings
+      const monthlySavings = monthlyUnitsSaved * TARIFF;
+      const newMonthlyBill = Math.max(0, billVal - monthlySavings);
+
+      // STEP 5: Annual savings
+      const annualSavings = monthlySavings * 12;
+
+      // STEP 6: System cost
+      const totalCost = systemSize * COST_PER_KW;
+
+      // STEP 7: PM Surya Ghar subsidy (residential only)
+      let subsidy = 0;
+      if (isResidential) {
+        if (systemSize >= 3) subsidy = 78000;
+        else if (systemSize >= 2) subsidy = 60000;
+        else subsidy = 30000;
       }
 
-      // Check pincode range (110000 - 799999 for India)
-      const pinNum = parseInt(pinVal.substring(0, 3));
-      if (pinNum < 110 || pinNum > 799) {
-        calcResult.classList.remove('show');
-        calcResultSoon.classList.add('show');
-        return;
-      }
+      // STEP 8: Net cost
+      const netCost = totalCost - subsidy;
 
-      calcResultSoon.classList.remove('show');
+      // STEP 9: Payback period
+      const paybackYears = annualSavings > 0 ? (netCost / annualSavings).toFixed(1) : '—';
 
-      // Calculate: bill × 0.85 × 12
-      const annualSavings = Math.round(selectedBillValue * 0.85 * 12);
+      // STEP 10: 25-year lifetime savings
       const lifetimeSavings = annualSavings * 25;
 
-      // Determine system size
-      let systemSize = '2 – 3 kW';
-      if (selectedBillValue >= 2250) systemSize = '3 – 5 kW';
-      if (selectedBillValue >= 4500) systemSize = '5 – 8 kW';
-      if (selectedBillValue >= 8000) systemSize = '8 – 12 kW';
-
-      resultAmount.textContent = '\u20B9' + annualSavings.toLocaleString('en-IN');
-      resultSize.textContent = systemSize;
-      resultLifetime.textContent = '\u20B9' + lifetimeSavings.toLocaleString('en-IN');
+      // Update DOM
+      document.getElementById('resultSize').textContent = systemSize + ' kW';
+      document.getElementById('resultMonthlySavings').textContent = formatINR(monthlySavings);
+      document.getElementById('resultNewBill').textContent = formatINR(newMonthlyBill);
+      document.getElementById('resultCost').textContent = formatINR(totalCost);
+      document.getElementById('resultSubsidy').textContent = formatINR(subsidy);
+      document.getElementById('resultNetCost').textContent = formatINR(netCost);
+      document.getElementById('resultPayback').textContent = paybackYears + ' yrs';
+      document.getElementById('resultLifetime').textContent = formatINR(lifetimeSavings);
 
       calcResult.classList.add('show');
     });
