@@ -4949,12 +4949,15 @@
       const imgObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            const img = entry.target.querySelector('.clip-reveal-img');
+            if (img) {
+              img.classList.add('revealed');
+            }
           }
         });
       }, { threshold: 0.15 });
-      document.querySelectorAll('.clip-reveal-img').forEach(img => {
-        imgObserver.observe(img);
+      document.querySelectorAll('.process-step').forEach(step => {
+        imgObserver.observe(step);
       });
     });
 
