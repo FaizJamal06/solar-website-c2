@@ -2383,6 +2383,15 @@
       margin-bottom: 12px;
     }
 
+    .product-card h4,
+    .service-card h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
     .product-card p,
     .service-card p {
       font-size: 14.5px;
