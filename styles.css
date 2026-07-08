@@ -802,6 +802,18 @@
       letter-spacing: -0.02em;
     }
 
+    .section-subtitle {
+      text-align: center;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -32px;
+      margin-bottom: 48px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
     @media (min-width: 640px) {
       .section-heading {
         font-size: 44px;
@@ -2402,7 +2414,6 @@
 
     .specs-list,
     .features-list {
-      margin-top: auto;
       padding-top: 16px;
       border-top: 1px dashed var(--card-border);
     }
