@@ -517,12 +517,5 @@
       });
     });
 
-    // ===== FOOTER CTA STRIP =====
-    // Adding a subtle footer CTA strip above the footer
-    const footerCTA = document.createElement('div');
-    footerCTA.style.cssText = 'background:#0A1628;border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;text-align:center;';
-    footerCTA.innerHTML = '<div class="container" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;"><p style="color:#CBD5E1;font-size:15px;margin:0;">Switch to Solar with <strong style="color:var(--accent);">Zero Down Payment</strong> — Govt. subsidies handle the setup costs.</p><a href="#lead-form" style="background:var(--accent);color:#FFFFFF;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap;">Start Today &rarr;</a></div>';
 
-    const footerEl = document.querySelector('.footer');
-    footerEl.parentNode.insertBefore(footerCTA, footerEl);
   
