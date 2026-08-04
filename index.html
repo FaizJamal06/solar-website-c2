@@ -23,6 +23,14 @@
 
 <body>
 
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-sun"></div>
+      <div class="preloader-text">POWERING ON...</div>
+    </div>
+  </div>
+
   <!-- Navbar -->
 
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -168,14 +176,15 @@
 
   <section class="segment-section" id="products">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>— OUR PRODUCTS</span></div>
-      <h2 class="section-heading" data-aos="fade-up">Our Solar Products</h2>
+      <div class="section-eyebrow" data-aos="fade-up"><span>OUR PRODUCTS</span></div>
+      <h2 class="section-heading" data-aos="fade-up">Built for the Long Run</h2>
 
       <p class="section-subtitle" data-aos="fade-up">
-        High-efficiency solar products engineered for maximum durability, performance, and financial returns.
+        Every product we carry has been selected because it actually performs. Not just on paper, but through years of
+        real installations across homes, farms, and factories across India.
       </p>
 
-      <div class="products-grid">
+      <div class="products-grid products-grid-3">
         <!-- Product 1 -->
         <div class="product-card" data-aos="fade-up" data-aos-delay="0">
           <img src="./rooftop_solar.png" alt="Rooftop Solar Installation" class="product-card-img" />
@@ -187,14 +196,12 @@
             </svg>
           </div>
           <h3>Solar Rooftop System</h3>
-          <p>A rooftop solar system converts your idle roof space into an independent clean energy plant. These systems
-            come in three types — <strong>on-grid</strong> (net metering), <strong>off-grid</strong> (battery-backed),
-            and <strong>hybrid</strong> — to match any power requirement.</p>
+          <p>Turn your unused roof into a power station that cuts your bill from day one. Whether you want to stay on the grid, go off-grid, or use a hybrid setup, we'll design it to fit exactly what you need.</p>
           <ul class="specs-list">
-            <li>Ideal for industries, institutions, residences, and commercial spaces</li>
-            <li>Available in on-grid, off-grid, and hybrid configurations</li>
-            <li>Available in 1kW to 500kW capacity range</li>
-            <li>Eligible for direct government capital subsidies</li>
+            <li>Works for homes, factories, schools, and commercial buildings</li>
+            <li>On-grid, off-grid, and hybrid configurations available</li>
+            <li>Systems from 1kW all the way up to 500kW+</li>
+            <li>Eligible for central government capital subsidies</li>
           </ul>
         </div>
 
@@ -210,17 +217,68 @@
             </svg>
           </div>
           <h3>Solar Street Lights</h3>
-          <p>Solar street lights are self-powered, standalone outdoor lighting units that harness sunlight during the
-            day and illuminate streets, pathways, and open areas at night. They are commonly installed along
-            <strong>streets, highways, and outside residential homes</strong> for reliable, zero-electricity-cost
-            lighting.
-          </p>
+          <p>No wiring, no electricity bills, no maintenance. These standalone units charge during the day and switch on at dusk, providing reliable lighting without running cables across your property.</p>
           <ul class="specs-list">
-            <li>All-in-one and integrated lithium battery models</li>
-            <li>PIR motion sensor enabled with adaptive brightness</li>
-            <li>Automatic dusk-to-dawn intelligent controller operations</li>
-            <li>High-capacity LiFePO4 battery backup for up to 3 days</li>
+            <li>All-in-one design with built-in lithium battery</li>
+            <li>PIR motion sensor with adaptive brightness control</li>
+            <li>Auto dusk-to-dawn operation, zero manual intervention</li>
+            <li>LiFePO4 battery backup holds charge for up to 3 cloudy days</li>
           </ul>
+        </div>
+
+        <!-- Product 3: Solar Water Pumps -->
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="./solar_water_pump_new.png" alt="Solar Water Pump" class="product-card-img" />
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 2v6M12 22v-6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M22 12h-6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24" />
+            </svg>
+          </div>
+          <h3>Solar Water Pumps</h3>
+          <p>If you're paying electricity or diesel to pump water every day, this is the upgrade that pays for itself fastest. Runs purely on sunlight, submersible or surface, built for farms, homes, and industrial use.</p>
+          <ul class="specs-list">
+            <li>Submersible models up to 150 m depth, surface up to 8 m</li>
+            <li>Flow range: 500 to 50,000+ litres per hour</li>
+            <li>MPPT controller with dry-run protection built in</li>
+            <li>Grid-hybrid backup and IoT monitoring available</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW TO CHOOSE YOUR PUMP ===== -->
+  <section class="pump-guide-section" id="pump-guide">
+    <div class="container">
+      <div class="pump-guide-header" data-aos="fade-up">
+        <div class="section-eyebrow"><span>SOLAR WATER PUMPS</span></div>
+        <h2 class="section-heading">How to Pick the Right Pump</h2>
+      </div>
+
+      <div class="pump-checklist" data-aos="fade-up">
+        <div class="pump-check-item">
+          <span class="pump-check-num">01</span>
+          <div><strong>Water source</strong> &mdash; borewell or underground needs a submersible, open pond or tank takes a surface pump</div>
+        </div>
+        <div class="pump-check-item">
+          <span class="pump-check-num">02</span>
+          <div><strong>Total head</strong> &mdash; vertical lift from source to delivery point, plus pipe friction losses</div>
+        </div>
+        <div class="pump-check-item">
+          <span class="pump-check-num">03</span>
+          <div><strong>Daily volume</strong> &mdash; litres per day needed, not per hour, this sets the flow rate and panel size</div>
+        </div>
+        <div class="pump-check-item">
+          <span class="pump-check-num">04</span>
+          <div><strong>Your sun hours</strong> &mdash; irradiation varies by region, a Rajasthan system will need different sizing than one in Coorg</div>
+        </div>
+        <div class="pump-check-item">
+          <span class="pump-check-num">05</span>
+          <div><strong>Night operation</strong> &mdash; most pumps run daylight only, grid-hybrid backup available if you need 24/7 supply</div>
+        </div>
+        <div class="pump-check-cta">
+          <a href="#lead-form" class="pump-cta-btn">Get a Free Assessment &rarr;</a>
         </div>
       </div>
     </div>
@@ -230,7 +288,7 @@
 
   <section class="segment-section" id="services">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>— OUR SERVICES</span></div>
+      <div class="section-eyebrow" data-aos="fade-up"><span>OUR SERVICES</span></div>
       <h2 class="section-heading" data-aos="fade-up">Our Dedicated Services</h2>
 
       <p class="section-subtitle" data-aos="fade-up">
@@ -312,7 +370,7 @@
   <!-- ===== WHY TRUST HELIONEST ===== -->
   <section class="trust-section">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>— WHY CHOOSE US</span></div>
+      <div class="section-eyebrow" data-aos="fade-up"><span>WHY CHOOSE US</span></div>
       <h2 class="section-heading" data-aos="fade-up">Why Trust Kotieshwara Associates</h2>
       <div class="trust-grid">
         <!-- Pillar 1 -->
@@ -368,7 +426,7 @@
   <section class="calc-section" id="calculator">
     <div class="container">
       <div class="calc-card" data-aos="fade-up">
-        <div class="section-eyebrow" data-aos="fade-up"><span>— SAVINGS ESTIMATOR</span></div>
+        <div class="section-eyebrow" data-aos="fade-up"><span>SAVINGS ESTIMATOR</span></div>
         <h2>Calculate Your Solar Savings</h2>
 
         <div class="form-group">
@@ -467,7 +525,7 @@
   <!-- ===== 4-STEP PROCESS ===== -->
   <section class="process-section">
     <div class="container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>— HOW IT WORKS</span></div>
+      <div class="section-eyebrow" data-aos="fade-up"><span>HOW IT WORKS</span></div>
       <h2 class="section-heading" data-aos="fade-up">How It Works</h2>
       <div class="process-steps">
         <div class="process-connector"></div>
@@ -478,7 +536,7 @@
           <div class="process-step-content">
             <h3>Free Rooftop Survey</h3>
             <p>Our expert visits and maps your roof for maximum solar output. We assess shading, structure, and
-              electrical compatibility — all at no cost.</p>
+              electrical compatibility, all at no cost.</p>
           </div>
           <div class="process-step-visual">
             <img src="./process_survey.png" alt="Rooftop Survey" loading="lazy" class="clip-reveal-img"
@@ -507,7 +565,7 @@
           <div class="step-number">3</div>
           <div class="process-step-content">
             <h3>Installation + Subsidy Filing</h3>
-            <p>Done in 1 day. We handle all the paperwork — from government subsidy applications to net metering
+            <p>Done in 1 day. We handle all the paperwork, from government subsidy applications to net metering
               approvals. You just sit back.</p>
           </div>
           <div class="process-step-visual">
@@ -543,7 +601,7 @@
     <div class="container">
       <div class="testimonials-header" data-aos="fade-up"
        >
-        <div class="section-eyebrow" data-aos="fade-up"><span>— WHAT CLIENTS SAY</span></div>
+        <div class="section-eyebrow" data-aos="fade-up"><span>WHAT CLIENTS SAY</span></div>
         <h2>What Our Customers Say</h2>
         <div class="google-rating">
           <span class="rating-number">4.9</span>
@@ -607,7 +665,7 @@
 
   <section class="faq-section" id="faq">
     <div class="container faq-container">
-      <div class="section-eyebrow" data-aos="fade-up"><span>— QUESTIONS & ANSWERS</span></div>
+      <div class="section-eyebrow" data-aos="fade-up"><span>QUESTIONS &amp; ANSWERS</span></div>
       <h2 data-aos="fade-up">Frequently Asked
         Questions</h2>
 
@@ -681,7 +739,7 @@
   <section class="lead-section" id="lead-form">
     <div class="container">
       <div class="lead-inner" data-aos="fade-up">
-        <div class="section-eyebrow" data-aos="fade-up"><span>— CONSULTATION</span></div>
+        <div class="section-eyebrow" data-aos="fade-up"><span>CONSULTATION</span></div>
         <h2>Talk to a Solar Expert</h2>
         <p>Get facts, specifications, and layout advice. No pushy sales calls.</p>
 
@@ -790,6 +848,7 @@
           <ul>
             <li><a href="#products">Solar Rooftop System</a></li>
             <li><a href="#products">Solar Street Lights</a></li>
+            <li><a href="#products">Solar Water Pumps</a></li>
           </ul>
         </div>
 

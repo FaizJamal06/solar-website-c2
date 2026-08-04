@@ -1,3 +1,13 @@
+    // ===== PRELOADER =====
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.classList.add('loaded');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 600);
+      }
+    });
 
     // ===== INITIALIZE AOS =====
     document.addEventListener('DOMContentLoaded', function () {
@@ -27,23 +37,25 @@
       });
 
       // ===== PRODUCT CARD 3D TILT =====
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      const maxTilt = isMobile ? 4 : 8; // gentler tilt on mobile
+
       document.querySelectorAll('.product-card').forEach(card => {
         function handleMove(clientX, clientY) {
           const rect = card.getBoundingClientRect();
           const x = clientX - rect.left - rect.width / 2;
           const y = clientY - rect.top - rect.height / 2;
-          // Max 8 degrees tilt
-          const rotateX = -(y / (rect.height / 2)) * 8;
-          const rotateY = (x / (rect.width / 2)) * 8;
+          const rotateX = -(y / (rect.height / 2)) * maxTilt;
+          const rotateY = (x / (rect.width / 2)) * maxTilt;
           card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
         }
         card.addEventListener('mousemove', function (e) {
           handleMove(e.clientX, e.clientY);
         });
+        // On mobile: use touchmove without blocking scroll
         card.addEventListener('touchmove', function (e) {
-          if (e.cancelable) e.preventDefault(); // prevent scroll pull if dragging inside card
           handleMove(e.touches[0].clientX, e.touches[0].clientY);
-        }, { passive: false });
+        }, { passive: true });
         card.addEventListener('mouseleave', function () {
           card.style.transform = '';
         });
@@ -51,6 +63,21 @@
           card.style.transform = '';
         });
       });
+
+      // ===== PUMP CHECKLIST TOUCH ACTIVATION (MOBILE) =====
+      document.querySelectorAll('.pump-check-item').forEach(item => {
+        item.addEventListener('touchstart', function () {
+          // Remove active from siblings
+          document.querySelectorAll('.pump-check-item').forEach(i => i.classList.remove('touch-active'));
+          this.classList.add('touch-active');
+        }, { passive: true });
+      });
+      // Clear touch-active when tapping outside
+      document.addEventListener('touchstart', function (e) {
+        if (!e.target.closest('.pump-check-item')) {
+          document.querySelectorAll('.pump-check-item').forEach(i => i.classList.remove('touch-active'));
+        }
+      }, { passive: true });
 
       // ===== TIMELINE PROCESS LINE DRAWING =====
       const connector = document.querySelector('.process-connector');

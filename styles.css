@@ -1,3 +1,68 @@
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0A1628;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.6s ease;
+    }
+
+    .preloader.loaded {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .preloader-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .preloader-sun {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #F59E0B;
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+      animation: pulseSun 1.5s infinite;
+    }
+
+    .preloader-text {
+      font-family: 'Syne', sans-serif;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: fadeInOut 2s infinite;
+    }
+
+    @keyframes pulseSun {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 20px rgba(245, 158, 11, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+      }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
 
     /* ===== CSS RESET & BASE ===== */
     *,
@@ -2348,6 +2413,173 @@
         margin-left: auto;
         margin-right: auto;
       }
+
+      .products-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 100%;
+      }
+    }
+
+    /* ===== PUMP VARIANTS (inside Solar Water Pump card) ===== */
+    .pump-variants {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 16px;
+    }
+
+    .pump-variant {
+      padding: 14px 0;
+    }
+
+    .pump-variant--divider {
+      border-top: 1px dashed var(--card-border);
+    }
+
+    .pump-variant h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pump-variant p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .pump-variant .specs-list {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .pump-variant .specs-list li {
+      font-size: 12.5px;
+    }
+
+    /* ===== PUMP FEATURE TAGS ===== */
+    .pump-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--card-border);
+    }
+
+    .pump-tag {
+      display: inline-block;
+      background: rgba(29, 78, 216, 0.08);
+      color: var(--accent);
+      border: 1px solid rgba(29, 78, 216, 0.2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* ===== PUMP GUIDE (compact checklist) ===== */
+    .pump-guide-section {
+      padding: 56px 0;
+      background: var(--gray-warm);
+      border-top: 1px solid var(--card-border);
+    }
+
+    .pump-guide-header {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .pump-guide-header .section-eyebrow {
+      margin-bottom: 0;
+    }
+
+    .pump-guide-header .section-heading {
+      margin-bottom: 0;
+      font-size: clamp(22px, 3vw, 30px);
+    }
+
+    .pump-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .pump-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: default;
+    }
+
+    .pump-check-item:hover {
+      background: rgba(29, 78, 216, 0.03);
+      padding-left: 32px;
+    }
+
+    .pump-check-item:last-of-type {
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .pump-check-item strong {
+      color: var(--navy);
+    }
+
+    .pump-check-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      min-width: 22px;
+      padding-top: 2px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .pump-check-item:hover .pump-check-num {
+      transform: scale(1.15);
+      color: var(--navy);
+    }
+
+    .pump-check-cta {
+      padding: 14px 22px;
+      background: var(--white-warm);
+    }
+
+    .pump-cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .pump-cta-btn:hover {
+      background: #1e40af;
+      transform: translateY(-2px);
     }
 
     .product-card,
@@ -2416,6 +2648,7 @@
     .features-list {
       padding-top: 16px;
       border-top: 1px dashed var(--card-border);
+      margin-top: auto;
     }
 
     .specs-list li,
@@ -2424,7 +2657,7 @@
       color: var(--navy);
       margin-bottom: 8px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 8px;
     }
 
@@ -2433,6 +2666,7 @@
       content: "•";
       color: var(--accent);
       font-weight: bold;
+      margin-top: -2px;
     }
 
     /* ===== NEW PREMIUM VISUAL UPGRADES ===== */
@@ -3924,6 +4158,11 @@
         margin-right: auto;
       }
 
+      .products-grid-3 {
+        max-width: 100% !important;
+        grid-template-columns: 1fr !important;
+      }
+
       .products-grid,
       .services-grid {
         margin-top: 28px;
@@ -4306,6 +4545,54 @@
       .mobile-sticky-form .submit-btn {
         width: 100%;
         min-height: 44px;
+      }
+
+      /* ===== MOBILE ANIMATION FIXES ===== */
+
+      /* Product card: tap-and-hold glow */
+      .product-card:active,
+      .service-card:active {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 10px 25px rgba(29, 78, 216, 0.1);
+        border-color: var(--accent);
+      }
+
+      /* Pump checklist: touch-active mirrors hover */
+      .pump-check-item.touch-active {
+        background: rgba(29, 78, 216, 0.03);
+        padding-left: 32px;
+      }
+
+      .pump-check-item.touch-active .pump-check-num {
+        transform: scale(1.15);
+        color: var(--navy);
+      }
+
+      /* Pump guide section compact on mobile */
+      .pump-guide-header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .pump-guide-header .section-heading {
+        font-size: clamp(22px, 6vw, 28px) !important;
+      }
+
+      .pump-check-item {
+        padding: 12px 16px;
+        gap: 14px;
+        font-size: 13.5px;
+      }
+
+      .pump-check-cta {
+        padding: 12px 16px;
+      }
+
+      /* Trust cards get a tap lift */
+      .trust-card:active {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(29, 78, 216, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
     }
 
