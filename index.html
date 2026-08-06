@@ -18,7 +18,7 @@
   <!-- AOS.js -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 
 <body>
@@ -286,83 +286,99 @@
 
   <!-- Testimonials -->
 
-  <section class="segment-section" id="services">
-    <div class="container">
+  <section class="services-sticky-section" id="services">
+    <div class="container services-sticky-header">
       <div class="section-eyebrow" data-aos="fade-up"><span>OUR SERVICES</span></div>
       <h2 class="section-heading" data-aos="fade-up">Our Dedicated Services</h2>
-
       <p class="section-subtitle" data-aos="fade-up">
         From initial site evaluations to lifelong optimization, Kotieshwara Associates handles all steps of your solar
         transition.
       </p>
+    </div>
 
-      <div class="services-grid">
-        <!-- Service 1 -->
-        <div class="service-card service-card-blue" data-aos="fade-up" data-aos-delay="0">
-          <img src="./supply_distribution.png" alt="Supply and Distribution" class="service-card-img" />
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path
-                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-              <line x1="12" y1="22.08" x2="12" y2="12" />
-            </svg>
+    <div class="services-sticky-container" id="servicesCardsContainer">
+      <div class="services-cards-wrapper" id="servicesCardsWrapper">
+
+        <!-- Card 1: Supply -->
+        <div class="services-card" data-index="0">
+          <div class="services-card-inner">
+            <div class="services-card-content">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </div>
+              <span class="services-card-badge">01 &bull; SUPPLY</span>
+              <h3>Supply and Distribution</h3>
+              <p>We source, warehouse, and supply premium-grade solar components across India. All materials are direct-sourced for optimal pricing and reliability.</p>
+              <ul class="features-list">
+                <li>Sourcing of Tier-1 solar panels, inverters, and batteries</li>
+                <li>Fully certified high-performance components</li>
+                <li>Heavy-duty hot-dip galvanized mounting structures</li>
+                <li>Reliable pan-India logistics and distribution coverage</li>
+              </ul>
+            </div>
+            <div class="services-card-visual">
+              <img src="./supply_distribution.png" alt="Supply and Distribution" />
+            </div>
           </div>
-          <h3>Supply and Distribution</h3>
-          <p>We source, warehouse, and supply premium-grade solar components across India. All materials are
-            direct-sourced to ensure pricing efficiency.</p>
-          <ul class="features-list">
-            <li>Sourcing of quality solar panels, inverters, and battery banks</li>
-            <li>Fully certified high-performance components</li>
-            <li>Heavy-duty hot-dip galvanized module mounting structures</li>
-            <li>Reliable, pan-India logistics and distribution coverage</li>
-          </ul>
         </div>
 
-        <!-- Service 2 -->
-        <div class="service-card service-card-blue" data-aos="fade-up" data-aos-delay="100">
-          <img src="./panel_installation.png" alt="Solar Panel Installation" class="service-card-img" />
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <polygon points="12 2 2 7 12 12 22 7 12 2" />
-              <polyline points="2 17 12 22 22 17" />
-              <polyline points="2 12 12 17 22 12" />
-            </svg>
+        <!-- Card 2: Installation -->
+        <div class="services-card" data-index="1">
+          <div class="services-card-inner">
+            <div class="services-card-content">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
+              </div>
+              <span class="services-card-badge">02 &bull; INSTALLATION</span>
+              <h3>Installation &amp; Setup</h3>
+              <p>Our in-house certified technicians install solar arrays to strict structural and electrical safety standards, ensuring long-term yield.</p>
+              <ul class="features-list">
+                <li>End-to-end commissioning by certified engineers</li>
+                <li>Detailed site layout assessment &amp; 3D shade analysis</li>
+                <li>Discom safety tests, meter approvals &amp; subsidy filing</li>
+                <li>Completed in 1 day with zero structural disturbance</li>
+              </ul>
+            </div>
+            <div class="services-card-visual">
+              <img src="./panel_installation.png" alt="Solar Panel Installation" />
+            </div>
           </div>
-          <h3>Installation</h3>
-          <p>Our in-house experienced technicians install solar arrays to structural and electrical excellence
-            guidelines, ensuring system safety.</p>
-          <ul class="features-list">
-            <li>End-to-end commissioning by certified technicians</li>
-            <li>Detailed site layout assessment and engineering design</li>
-            <li>Handling of all discom safety tests and approvals</li>
-            <li>Subsidy filing and net metering documentation handled</li>
-          </ul>
         </div>
 
-        <!-- Service 3 -->
-        <div class="service-card service-card-blue" data-aos="fade-up" data-aos-delay="200">
-          <img src="./maintenance_inspection.png" alt="Solar Maintenance" class="service-card-img" />
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3" />
-              <path
-                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-            </svg>
+        <!-- Card 3: Maintenance -->
+        <div class="services-card" data-index="2">
+          <div class="services-card-inner">
+            <div class="services-card-content">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+              </div>
+              <span class="services-card-badge">03 &bull; MAINTENANCE</span>
+              <h3>Lifelong Maintenance</h3>
+              <p>Keep your solar generation optimal throughout its 25+ year lifespan with routine inspections, panel cleaning, and health checks.</p>
+              <ul class="features-list">
+                <li>Structured Annual Maintenance Contracts (AMC)</li>
+                <li>Panel cleaning, string checks, and cable inspections</li>
+                <li>Inverter health diagnostics &amp; generation analysis</li>
+                <li>24/7 technical support and rapid service dispatch</li>
+              </ul>
+            </div>
+            <div class="services-card-visual">
+              <img src="./maintenance_inspection.png" alt="Solar Maintenance" />
+            </div>
           </div>
-          <h3>Maintenance</h3>
-          <p>Keep your solar generation optimal throughout its lifespan. We provide routine testing, cleaning, and
-            performance log checks.</p>
-          <ul class="features-list">
-            <li>Structured Annual Maintenance Contracts (AMC) available</li>
-            <li>Panel cleaning, string checks, and cable inspections</li>
-            <li>Inverter health checks and generation data analysis</li>
-            <li>24/7 technical query support and service dispatch</li>
-          </ul>
         </div>
+
       </div>
     </div>
   </section>
@@ -539,7 +555,7 @@
               electrical compatibility, all at no cost.</p>
           </div>
           <div class="process-step-visual">
-            <img src="./process_survey.png" alt="Rooftop Survey" loading="lazy" class="clip-reveal-img"
+            <img src="./process_survey.png" alt="Rooftop Survey"  class="clip-reveal-img"
               />
           </div>
         </div>
@@ -554,7 +570,7 @@
               photorealistic preview of your rooftop solar setup.</p>
           </div>
           <div class="process-step-visual">
-            <img src="./process_design.png" alt="3D Design" loading="lazy" class="clip-reveal-img"
+            <img src="./process_design.png" alt="3D Design"  class="clip-reveal-img"
               />
           </div>
         </div>
@@ -569,7 +585,7 @@
               approvals. You just sit back.</p>
           </div>
           <div class="process-step-visual">
-            <img src="./process_installation.png" alt="Installation" loading="lazy" class="clip-reveal-img"
+            <img src="./process_installation.png" alt="Installation"  class="clip-reveal-img"
               />
           </div>
         </div>
@@ -584,7 +600,7 @@
               Zero worries.</p>
           </div>
           <div class="process-step-visual">
-            <img src="./process_savings.png" alt="Savings" loading="lazy" class="clip-reveal-img"
+            <img src="./process_savings.png" alt="Savings"  class="clip-reveal-img"
               />
           </div>
         </div>
@@ -872,9 +888,9 @@
         <div class="footer-col">
           <h4>Contact Us</h4>
           <ul>
-            <li><a href="tel:18001234567">1800-123-4567</a></li>
-            <li><a href="mailto:info@kotieshwara.com">info@kotieshwara.com</a></li>
-            <li><a href="#">Tamil Nadu, India</a></li>
+            <li><a href="tel:+919442065464">+91 94420 65464</a></li>
+            <li><a href="mailto:Kotieshwaraassociates@gmail.com">Kotieshwaraassociates@gmail.com</a></li>
+            <li><a href="#">2nd floor, J Square Plaza, Nethaji Nagar, Nanjundapuram road, Coimbatore 641036</a></li>
           </ul>
         </div>
       </div>
@@ -905,8 +921,11 @@
   <!-- ===== AOS.JS ===== -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <!-- ===== GSAP + ScrollTrigger ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script src="script.js?v=4"></script>
 </body>
 
 </html>

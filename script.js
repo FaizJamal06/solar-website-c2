@@ -18,6 +18,19 @@
         offset: window.innerWidth < 768 ? 10 : 60,
         disable: false
       });
+      
+      function refreshAOS() {
+        AOS.refresh();
+        // NOTE: Do NOT call ScrollTrigger.refresh() here.
+        // AOS and ScrollTrigger are independent systems. Coupling them
+        // causes refresh cascades that corrupt pin-spacer dimensions.
+      }
+
+      if (document.readyState === 'complete') {
+        refreshAOS();
+      } else {
+        window.addEventListener('load', refreshAOS);
+      }
 
       // ===== SERVICE CARD SPOTLIGHT GLOW =====
       document.querySelectorAll('.service-card').forEach(card => {
@@ -94,6 +107,10 @@
       }
 
       // ===== WIPE IMAGE REVEALS =====
+      // NOTE: This observer must unobserve after first intersection.
+      // Without unobserve, every reverse scroll through the process section
+      // fires ScrollTrigger.refresh() for each step (4 rapid calls),
+      // corrupting the services section pin-spacer dimensions.
       const imgObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -101,6 +118,8 @@
             if (img) {
               img.classList.add('revealed');
             }
+            // Only observe once — prevents repeated refresh calls on reverse scroll
+            imgObserver.unobserve(entry.target);
           }
         });
       }, { threshold: 0.15 });
@@ -544,5 +563,152 @@
       });
     });
 
+    // ===== GSAP + ScrollTrigger =====
+    gsap.registerPlugin(ScrollTrigger);
 
-  
+    // ===== 3D STICKY CARD STACK (GSAP + ScrollTrigger) FOR SERVICES =====
+
+    function initServicesCardStack() {
+      const container = document.getElementById('servicesCardsContainer');
+      const wrapper = document.getElementById('servicesCardsWrapper');
+      if (!container || !wrapper) return;
+
+      const cards = wrapper.querySelectorAll('.services-card');
+      const totalCards = cards.length;
+      if (totalCards < 2) return;
+
+      // 1. Clean up existing instance if re-initializing to prevent duplicate pin spacers (huge whitespace bug)
+      const existing = ScrollTrigger.getById('servicesScrollTrigger');
+      if (existing) {
+        existing.kill();
+      }
+
+      // Define 3D card states
+      const STATES = {
+        past: {
+          y: -250,
+          z: -100,
+          rotationX: -45,
+          scale: 0.9,
+          opacity: 0
+        },
+        present: {
+          y: 0,
+          z: 0,
+          rotationX: 0,
+          scale: 1,
+          opacity: 1
+        },
+        future: {
+          y: 40,
+          z: -80
+        }
+      };
+
+      // Set initial card positions
+      cards.forEach((card, i) => {
+        const scaleOffset = 1 - (i * 0.04);
+        gsap.set(card, {
+          xPercent: -50,
+          yPercent: -50,
+          y: i === 0 ? STATES.present.y : STATES.future.y * i,
+          z: i === 0 ? STATES.present.z : -80 * i,
+          rotationX: i === 0 ? STATES.present.rotationX : 0,
+          scale: scaleOffset,
+          opacity: 1,
+          zIndex: i === 0 ? totalCards + 1 : totalCards - i
+        });
+      });
+
+      // 2. Create a formal timeline mapped to the scroll progress (fixes reverse scroll and state persistence)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'servicesScrollTrigger',
+          trigger: container,
+          start: 'top top',
+          // Reduce scroll distance so the user doesn't have to swipe/scroll as much (especially on mobile)
+          end: () => '+=' + (window.innerHeight * (totalCards * 0.6)),
+          pin: true,
+          scrub: 1, // Smooth scrubbing natively managed by GSAP
+          anticipatePin: 1 // Smooth pin transition on reverse scroll (prevents visual jump)
+        }
+      });
+
+      // For each scroll segment (one per card transitioning out)
+      for (let i = 0; i < totalCards - 1; i++) {
+        // We use absolute timeline labels (0, 1, 2) to sync animations
+        const time = i;
+
+        // A. The active card (i) moves to the PAST
+        tl.to(cards[i], {
+          y: STATES.past.y,
+          z: STATES.past.z,
+          rotationX: STATES.past.rotationX,
+          scale: STATES.past.scale,
+          opacity: STATES.past.opacity,
+          zIndex: i,
+          ease: "power2.inOut"
+        }, time);
+
+        // B. The next card (i+1) moves to the PRESENT
+        tl.to(cards[i + 1], {
+          y: STATES.present.y,
+          z: STATES.present.z,
+          rotationX: STATES.present.rotationX,
+          scale: STATES.present.scale,
+          opacity: STATES.present.opacity,
+          zIndex: totalCards + 1,
+          ease: "power2.inOut"
+        }, time);
+
+        // C. Any future cards (i+2 and beyond) shift forward
+        for (let j = i + 2; j < totalCards; j++) {
+          const futureDepth = j - (i + 1);
+          tl.to(cards[j], {
+            y: STATES.future.y * futureDepth,
+            z: -80 * futureDepth,
+            scale: 1 - (futureDepth * 0.04),
+            zIndex: totalCards - futureDepth,
+            ease: "power2.inOut"
+          }, time);
+        }
+      }
+    }
+
+    // Initialize GSAP properly, ensuring it runs even if load event already fired
+    function runGSAPInit() {
+      initServicesCardStack();
+
+      // Single delayed refresh after layout has fully stabilized.
+      // Uses rAF + setTimeout to guarantee all painting/layout is complete.
+      // This replaces the old ResizeObserver (which caused a feedback loop:
+      //   refresh → body height change → ResizeObserver → refresh → ...)
+      // and the old global image load listener (which fired refresh for
+      //   every image on the page, including during reverse scrolling).
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 300);
+      });
+
+      // Handle genuine viewport changes (window resize, orientation change)
+      // with a proper 500ms debounce — safe because resize events don't
+      // create a feedback loop (refresh doesn't fire a resize event).
+      let windowResizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(windowResizeTimer);
+        windowResizeTimer = setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 500);
+      });
+    }
+
+    if (document.readyState === 'complete') {
+      runGSAPInit();
+    } else {
+      window.addEventListener('load', runGSAPInit);
+    }
+
+
+
+
