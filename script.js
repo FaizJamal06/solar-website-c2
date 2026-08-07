@@ -569,6 +569,8 @@
     // ===== 3D STICKY CARD STACK (GSAP + ScrollTrigger) FOR SERVICES =====
 
     function initServicesCardStack() {
+      // 3D effect removed as per user request
+      return;
       const container = document.getElementById('servicesCardsContainer');
       const wrapper = document.getElementById('servicesCardsWrapper');
       if (!container || !wrapper) return;
